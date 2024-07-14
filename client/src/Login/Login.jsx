@@ -9,7 +9,6 @@ import SignUpOrSignIn from "../SignUp/SignUpOrSignIn";
 import { useDispatch } from "react-redux";
 import { addUserName } from "../REDOX/Features/UserSlice/UserSlice";
 import LoadingQuestion from "../QUIZ/Hooks/ApiData/LoadingQuestion/LoadingQuestion";
-
 function Login() {
   // getting the dispatch
 
@@ -20,9 +19,9 @@ function Login() {
   const BASE_URL = "/api/user";
 
   ///// NAVIGATION
+
   const navigate = useNavigate();
 
-  const [user, setUser] = useState([]);
   const [firstname, setFirstname] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -58,7 +57,6 @@ function Login() {
       setIsLoading((prev) => ({ ...prev, isLoading: false }));
       console.log(error.response.data);
       setErrorMessage(error.response.data);
-      navigate("/google/login/failure");
     }
   };
 
@@ -70,7 +68,7 @@ function Login() {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center bg-[url(https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)] bg-center bg-cover sm:bg-fixed rounded-lg w-full h-screen relative bg-fixed -z-10 overflow-hidden">
+      <div className="flex flex-col items-center justify-center bg-[url(https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)] bg-center bg-cover sm:bg-fixed rounded-lg w-full h-screen relative bg-fixed  overflow-hidden">
         <form
           action=""
           method="POST"
@@ -81,7 +79,7 @@ function Login() {
             <h1 className=" text-white text-[1.2rem] mt-[8rem] font-bold sm:pb-0  pb-6">
               Sign In to Your Account
             </h1>
-            <p className="text-red-500 text-[1.2rem]">{errorMessage}</p>
+            <p className="text-red-500 text-[1.2rem] mt-4">{errorMessage}</p>
             <div className="w-full space-y-3">
               <label htmlFor="" className="text-white  text-[1.2rem]">
                 User Name

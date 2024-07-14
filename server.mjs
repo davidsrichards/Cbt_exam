@@ -74,5 +74,3 @@ app.get("*", (req, res) => {
 ///////////////
 
 app.listen(port, () => console.log(`start listening on port : ${port}`));
-
-// database mongodb+srv://Dauda:<password>@quiz.cdpitay.mongodb.net/?retryWrites=true&w=majority&appName=Quiz

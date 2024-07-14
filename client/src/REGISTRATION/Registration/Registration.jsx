@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import SignUpOrSignIn from "../../SignUp/SignUpOrSignIn";
+import LoadingQuestion from "../../QUIZ/Hooks/ApiData/LoadingQuestion/LoadingQuestion";
+import { useNavigate } from "react-router-dom";
 
 function Registration() {
+  const navigate = useNavigate();
   ////// base usr
 
   const BASE_URL = "/api/user";
@@ -16,6 +19,9 @@ function Registration() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [phone, setPhone] = useState("");
+  ////////////////////////////////
+
+  const [isLoading, setIsLoading] = useState({ isLoading: false });
 
   /////////////////////////////////
 
@@ -44,6 +50,7 @@ function Registration() {
   //////////////////// add data
 
   const addUser = async () => {
+    setIsLoading((prev) => ({ ...prev, isLoading: true }));
     try {
       const response = await axios.post(`${BASE_URL}/new`, {
         firstname: firstname,
@@ -55,6 +62,7 @@ function Registration() {
       setUser(response.data);
       console.log(response.data);
       if (response.data && confirmPassword === password) {
+        setIsLoading((prev) => ({ ...prev, isLoading: false }));
         setFirstNameError("");
         setLastNameError("");
         setPasswordError("");
@@ -67,8 +75,10 @@ function Registration() {
         setEmail("");
         setPhone("");
         setConfirmPassword("");
+        navigate("/");
       }
     } catch (error) {
+      setIsLoading((prev) => ({ ...prev, isLoading: false }));
       if (typeof error.response.data === "string") {
         setEmailError("Email Alrady Exist");
       }
@@ -120,9 +130,11 @@ function Registration() {
     }
   };
 
+  if (isLoading.isLoading) return <LoadingQuestion />;
+
   return (
     <>
-      <div className="bg-[url(https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)] bg-center bg-cover bg-fixed rounded-lg relative flex items-center justify-center w-full h-screen overflow-auto">
+      <div className="bg-[url(https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)] bg-center bg-cover bg-fixed rounded-lg relative flex items-center justify-center w-full overflow-auto">
         <form
           action=""
           method="POST"

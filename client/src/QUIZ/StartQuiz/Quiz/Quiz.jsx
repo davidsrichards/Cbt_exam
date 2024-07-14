@@ -3,7 +3,7 @@ import Question from "../Question/Question";
 import { moveNextAction } from "../../Hooks/FetchQuestions/FetchQuestions";
 import { movePreviousAcion } from "../../Hooks/FetchQuestions/FetchQuestions";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { pushAnswerAction } from "../../../REDOX/Features/ResultSlice/ResultSlice";
 
 function Quiz() {
@@ -23,6 +23,7 @@ function Quiz() {
 
   const { queue } = useSelector((state) => state.questions);
   const { trace } = useSelector((state) => state.questions);
+  const { username } = useSelector((state) => state.user);
 
   //// handle the previous button
 
@@ -63,6 +64,10 @@ function Quiz() {
   const oncheck = (check) => {
     setCheck(check);
   };
+
+  // checking if user exist
+
+  if (!username) return <Navigate to={"/"}></Navigate>;
 
   return (
     <>

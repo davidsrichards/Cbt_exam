@@ -48,8 +48,8 @@ function Result() {
 
   return (
     <>
-      <div className="text-white flex flex-col items-center justify-center h-screen gap-10 contain-content">
-        <h1 className="text-[1.3rem] font-bold">Quiz Results</h1>
+      <div className="flex flex-col items-center justify-center h-screen gap-10 contain-content">
+        <h1 className="text-[1.5rem] font-bold">Quiz Results</h1>
         <table className="w-[100%] border-collapse">
           <thead>
             <tr>
@@ -75,10 +75,10 @@ function Result() {
               </td>
               <td
                 className={`border-1 text-left p-6 border-2 border-[#ddd] text-${
-                  onpoint <= 20 ? "red-500" : "green-500"
+                  onpoint <= 40 ? "red-500" : "green-500"
                 }`}
               >
-                {`${onpoint < 20 ? "Failed" : "Pass"}`}
+                {`${onpoint < 40 ? "Failed" : "Pass"}`}
               </td>
               <td className="border-1 text-left p-6 border-2 border-[#ddd]">
                 {totalAttempt}

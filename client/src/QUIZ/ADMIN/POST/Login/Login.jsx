@@ -3,6 +3,7 @@ import { useState } from "react";
 import LoadingQuestion from "../../../Hooks/ApiData/LoadingQuestion/LoadingQuestion";
 import SignUpOrSignIn from "../../../../SignUp/SignUpOrSignIn";
 import { useNavigate } from "react-router-dom";
+import { FaHouseUser } from "react-icons/fa";
 
 function AdminLogin() {
   /// base url
@@ -120,7 +121,10 @@ function AdminLogin() {
         </div>
         {/*  */}
         <div className="absolute -top-10 left-10">
-          <SignUpOrSignIn to="/" action="Home" />
+          <SignUpOrSignIn
+            to="/"
+            action={<FaHouseUser className="text-[2rem]" />}
+          />
         </div>
       </div>
     </>
