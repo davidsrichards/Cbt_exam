@@ -14,6 +14,7 @@ import cookieParser from "cookie-parser";
 import googleRout from "./google-OAUTH/google-user/google-user.mjs";
 import discordRout from "./users/DISCORD/discord-user/discord-user.mjs";
 import cors from "cors";
+import morgan from "morgan";
 import dotenv from "dotenv";
 dotenv.config();
 import path from "path";
@@ -56,7 +57,9 @@ app.use(
 app.use(express.static(path.join(__dirname, "./client/dist")));
 app.use(passport.initialize());
 app.use(passport.session());
-/* app.use(express.static(path.resolve("../client", "dist"))); */
+app.use(morgan("tiny"));
+
+//////////////////////////////////////
 
 app.use(getRout);
 app.use(regRout);

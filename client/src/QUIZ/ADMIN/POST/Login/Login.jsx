@@ -1,91 +1,65 @@
-import axios from "axios";
-import { useState } from "react";
 import LoadingQuestion from "../../../Hooks/ApiData/LoadingQuestion/LoadingQuestion";
 import SignUpOrSignIn from "../../../../SignUp/SignUpOrSignIn";
 import { useNavigate } from "react-router-dom";
 import { FaHouseUser } from "react-icons/fa";
+import { useFormik } from "formik";
+import toast, { Toaster } from "react-hot-toast";
+import { validateLogin } from "../../../../Validate/Validate";
+import { adminLogin } from "../PUSH/Main/AdminPost/AdminHelperFunction/AdminHelperFunction";
 
 function AdminLogin() {
-  /// base url
-  const BASE_URL = "/api/user/admin/login";
   const navigate = useNavigate();
 
-  /// decleration of states
-  const [admin, setAdmin] = useState({
-    username: "",
-    password: "",
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      password: "",
+    },
+    validate: validateLogin,
+    validateOnBlur: false,
+    validateOnChange: false,
+    onSubmit: async (values) => {
+      try {
+        let loginPromise = adminLogin(values);
+        toast.promise(loginPromise, {
+          loading: <div>Checking...</div>,
+          success: <div>Successful</div>,
+          error: <div>Invalid Credentials</div>,
+        });
+        loginPromise
+          .then(() => {
+            return navigate("/admin-main");
+          })
+          .catch((err) => {
+            return err;
+          });
+      } catch (error) {
+        return error;
+      }
+    },
   });
-  /// error states
-  const [erros, setErros] = useState("");
-
-  const [apiData, setApiData] = useState({ isLoading: false });
-
-  // function to handle error
-
-  const handleErrors = (error) => {
-    setErros(error);
-  };
-
-  // clear errors
-
-  const clearErrors = () => {
-    setErros("");
-  };
-
-  // resetAll
-
-  const resetAll = () => {
-    setAdmin({ username: "", password: "" });
-  };
-
-  // post admin
-
-  const postAdmin = async (e) => {
-    e.preventDefault();
-    setApiData((prev) => ({ ...prev, isLoading: true }));
-    const response = await axios
-      .post(BASE_URL, { username: admin.username, password: admin.password })
-      .catch((err) => {
-        setApiData((prev) => ({ ...prev, isLoading: false }));
-        handleErrors(err.response.data);
-      });
-    if (response) {
-      setApiData((prev) => ({ ...prev, isLoading: false }));
-      clearErrors();
-      resetAll();
-      navigate("/admin-question");
-    }
-  };
-
-  // if loading...
-
-  if (apiData.isLoading) {
-    return <LoadingQuestion />;
-  }
 
   return (
     <>
       <div className="bg-[url(https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)] bg-center bg-cover bg-fixed rounded-lg  h-screen w-full flex items-center justify-center overflow-auto">
+        <Toaster position="center-top" reverseOrder={false}></Toaster>
         <form
           action=""
           method="POST"
           className="w-full bg-transparent"
-          onSubmit={postAdmin}
+          onSubmit={formik.handleSubmit}
         >
           <div className="grid grid-cols-1 transition justify-items-center container mx-auto  sm:w-1/2   m-4 w-full  p-2">
             <h1 className="text-[2rem] pb-6 text-pink-400 font-bold">
               Admin Sign In
             </h1>
-            <p className="text-red-500 text-[1.2rem]">{erros}</p>
+
             <div className="w-full space-y-3">
               <label htmlFor="" className="text-white  text-[1.2rem]">
                 User Name
               </label>
               <input
-                value={admin.username}
-                onChange={(e) =>
-                  setAdmin((prev) => ({ ...prev, username: e.target.value }))
-                }
+                {...formik.getFieldProps("username")}
                 type="text"
                 className="p-4 text-slate-500 bg-neutral-200 font-serif rounded-sm ring-2 ring-white w-full transition delay-100 hover:transition hover:ring-blue-500 outline-none"
               />
@@ -97,10 +71,7 @@ function AdminLogin() {
                 Password
               </label>
               <input
-                value={admin.password}
-                onChange={(e) =>
-                  setAdmin((prev) => ({ ...prev, password: e.target.value }))
-                }
+                {...formik.getFieldProps("password")}
                 type="password"
                 className="p-4 text-slate-500 bg-slate-200 font-serif rounded-sm ring-2 ring-white w-full transition  delay-100  hover:ring-blue-400 outline-none"
               />
@@ -115,10 +86,7 @@ function AdminLogin() {
             {/*  */}
           </div>
         </form>
-        {/*  */}
-        <div className="absolute -top-10 right-10">
-          <SignUpOrSignIn to="/admin-registration" action="Sign Up" />
-        </div>
+
         {/*  */}
         <div className="absolute -top-10 left-10">
           <SignUpOrSignIn

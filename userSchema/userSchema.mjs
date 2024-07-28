@@ -15,14 +15,20 @@ const newUser = new mongoose.Schema({
   },
   email: {
     type: mongoose.Schema.Types.String,
+    required: true,
+    unique: true,
   },
 
   phone: {
     type: mongoose.Schema.Types.String,
+    required: true,
   },
   password: {
     type: mongoose.Schema.Types.String,
     required: true,
+  },
+  profile: {
+    type: mongoose.Schema.Types.String,
   },
 });
 

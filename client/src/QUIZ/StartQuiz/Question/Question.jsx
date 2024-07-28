@@ -34,16 +34,11 @@ function Question({ onCheck }) {
   const handleInputCheck = (i) => {
     setCheck(i);
     onCheck(i);
-    console.log(check);
     dispatch(updateResultAction({ trace, check }));
   };
 
   if (isLoading) {
     return <LoadingQuestion />;
-  } else {
-    console.log("result", results);
-    console.log("trace", trace);
-    console.log("check", check);
   }
 
   if (serverError) {
@@ -53,7 +48,7 @@ function Question({ onCheck }) {
   return (
     <>
       {/*  */}
-      <div className="questions">
+      <div className="questions w-full">
         <h2 className="text-light">{questions?.question}</h2>
 
         <ul key={trace}>

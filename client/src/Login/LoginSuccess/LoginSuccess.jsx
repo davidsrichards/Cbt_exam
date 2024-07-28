@@ -5,18 +5,11 @@ import { Navigate } from "react-router-dom";
 
 function LoginSuccess() {
   const { username } = useSelector((state) => state.user);
-  useEffect(() => {
-    console.log(username);
-  });
 
   return (
     <>
       <div className="">
-        {username ? (
-          <StartQuiz />
-        ) : (
-          <Navigate to={"/"} replace={true}></Navigate>
-        )}
+        <StartQuiz />
       </div>
     </>
   );

@@ -1,0 +1,20 @@
+.glass {
+  background: rgb(255, 255, 255, 0.56);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px #4747470b;
+  backdrop-filter: blur(7.1px);
+  border: 1px solid rgb(255, 255, 255 0.3);
+  @apply border-spacing-4 border-gray-50 h-[98%] shrink-0  w-[30%] min-w-max pb-10;
+}
+
+.textbox {
+  @apply border-0 px-5 rounded-xl w-3/4 shadow-sm text-lg flex flex-col pb-4 w-[25rem] gap-6;
+  @apply focus:outline-none;
+}
+
+.btn {
+  @apply border bg-indigo-500  py-2 w-full rounded-lg text-gray-50 text-xl shadow-sm text-center transition-all duration-300 ease-in-out;
+}
+.btn:hover {
+  background-color: #ff6a6a;
+}

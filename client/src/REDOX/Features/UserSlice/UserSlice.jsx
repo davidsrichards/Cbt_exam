@@ -9,9 +9,12 @@ const UserSlice = createSlice({
     addUserName: (state, action) => {
       state.username = action.payload;
     },
+    resetUsernameAction: (state, action) => {
+      state.username = "";
+    },
   },
 });
 
-export const { addUserName } = UserSlice.actions;
+export const { addUserName, resetUsernameAction } = UserSlice.actions;
 
 export default UserSlice.reducer;

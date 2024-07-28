@@ -108,3 +108,62 @@ console.log(savedError);
           </tbody>
         </table> */
 }
+
+/* const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/quiz",
+    element: (
+      <ProtectQuiz>
+        <Quiz />
+      </ProtectQuiz>
+    ),
+  },
+  {
+    path: "/result",
+    element: <Result />,
+  },
+  {
+    path: "/registration",
+    element: <Registration />,
+  },
+  {
+    path: "/google/login/success",
+    element: <DashBoard />,
+  },
+  {
+    path: "/google/login/failure",
+    element: <Loginfailure />,
+  },
+  {
+    path: "/admin-registration",
+    element: <AdminRegistration />,
+  },
+  {
+    path: "/admin-login",
+    element: <AdminLogin />,
+  },
+  {
+    path: "/admin-post",
+    element: <AdminPost />,
+  },
+  {
+    path: "/admin-question",
+    element: <AdminMainQuestion />,
+  },
+  {
+    path: "/generate",
+    element: <GenerateOTP />,
+  },
+  {
+    path: "/recover",
+    element: <Username />,
+  },
+  {
+    path: "/reset",
+    element: <ResetPassword />,
+  },
+]); */

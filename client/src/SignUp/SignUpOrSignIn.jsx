@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 
-
 function SignUpOrSignIn({ question, action, to }) {
   return (
     <>

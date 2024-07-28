@@ -3,17 +3,17 @@ import Question from "../Question/Question";
 import { moveNextAction } from "../../Hooks/FetchQuestions/FetchQuestions";
 import { movePreviousAcion } from "../../Hooks/FetchQuestions/FetchQuestions";
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { pushAnswerAction } from "../../../REDOX/Features/ResultSlice/ResultSlice";
 
 function Quiz() {
-  /// variables
-
-  const [check, setCheck] = useState(undefined);
-
   // using the useNavigate
 
   const navigate = useNavigate();
+  const location = useLocation();
+  /// variables
+
+  const [check, setCheck] = useState(undefined);
 
   // using dispatch
 
@@ -23,7 +23,6 @@ function Quiz() {
 
   const { queue } = useSelector((state) => state.questions);
   const { trace } = useSelector((state) => state.questions);
-  const { username } = useSelector((state) => state.user);
 
   //// handle the previous button
 
@@ -52,12 +51,13 @@ function Quiz() {
   /// handle the finished button
 
   const handleFinishedButton = () => {
-    console.log("finished");
     if (results.length <= trace) {
       dispatch(pushAnswerAction(check));
     }
     if (trace) {
-      navigate("/result");
+      const current = location.pathname;
+      const newPath = current.replace("quiz", "result");
+      navigate(newPath, { replace: true, relative: true });
     }
   };
 
@@ -66,8 +66,6 @@ function Quiz() {
   };
 
   // checking if user exist
-
-  if (!username) return <Navigate to={"/"}></Navigate>;
 
   return (
     <>

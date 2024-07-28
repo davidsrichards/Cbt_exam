@@ -17,22 +17,13 @@ function Result() {
   const { results } = useSelector((state) => state.results);
   const { answers } = useSelector((state) => state.questions);
   const { username } = useSelector((state) => state.user);
-  const state = useSelector((state) => state);
 
   /// using the result helper function
 
   const totalAttempt = AttemptedQuestions(results);
-  const onpoint = resultOnpoint(results, answers, 10);
-  useEffect(() => {
-    console.log(username);
-    console.log(state);
-  });
+  const onpoint = resultOnpoint(results, answers, 8);
 
   //// using the result api
-
-  useEffect(() => {
-    console.log(username);
-  });
 
   publishResult({
     results: results,
@@ -78,7 +69,7 @@ function Result() {
                   onpoint <= 40 ? "red-500" : "green-500"
                 }`}
               >
-                {`${onpoint < 40 ? "Failed" : "Pass"}`}
+                {`${onpoint <= 40 ? "Failed" : "Pass"}`}
               </td>
               <td className="border-1 text-left p-6 border-2 border-[#ddd]">
                 {totalAttempt}
@@ -96,7 +87,7 @@ function Result() {
 
         <NavLink
           className="text-white font-bold"
-          to={"/quiz"}
+          to={"/google/login/success"}
           onClick={() => resetResult()}
         >
           <button className="bg-blue-400 w-[10rem] h-[3rem] rounded-lg text-xl">
