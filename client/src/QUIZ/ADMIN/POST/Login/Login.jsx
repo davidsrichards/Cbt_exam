@@ -41,7 +41,7 @@ function AdminLogin() {
 
   return (
     <>
-      <div className="bg-[url(https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)] bg-center bg-cover bg-fixed rounded-lg  h-screen w-full flex items-center justify-center overflow-auto">
+      <div className="bg-[url(https://images.pexels.com/photos/256559/pexels-photo-256559.jpeg?auto=compress&cs=tinysrgb&w=600)] bg-center bg-cover bg-fixed rounded-lg  h-screen w-full flex items-center justify-center overflow-auto">
         <Toaster position="center-top" reverseOrder={false}></Toaster>
         <form
           action=""
@@ -50,7 +50,7 @@ function AdminLogin() {
           onSubmit={formik.handleSubmit}
         >
           <div className="grid grid-cols-1 transition justify-items-center container mx-auto  sm:w-1/2   m-4 w-full  p-2">
-            <h1 className="text-[2rem] pb-6 text-pink-400 font-bold">
+            <h1 className="text-[2rem] pb-6 text-blue-400 font-bold">
               Admin Sign In
             </h1>
 
@@ -79,7 +79,7 @@ function AdminLogin() {
             {/*  */}
             <button
               type="submit"
-              className="mt-6 w-full p-3 bg-four-colors transition delay-1000 rounded-sm text-[1.2rem] font-bold hover:bg-four-colors-hover text-pink-400 "
+              className="mt-6 w-full p-3 delay-1000 rounded-sm text-[1.2rem] font-bold bg-blue-400 hover:bg-blue-600 transition-all duration-100 ease-in-out text-white"
             >
               Submit
             </button>

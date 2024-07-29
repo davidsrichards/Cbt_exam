@@ -31,7 +31,7 @@ function Registration() {
   return (
     <>
       <div>
-        <div className="bg-[url(https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)] bg-center bg-cover bg-fixed rounded-lg overflow-auto">
+        <div className="bg-[url(https://images.pexels.com/photos/256559/pexels-photo-256559.jpeg?auto=compress&cs=tinysrgb&w=600)] bg-center bg-cover bg-fixed rounded-lg overflow-auto">
           <Toaster position="top-center" reverseOrder={false}></Toaster>
           <form
             action=""
@@ -39,7 +39,7 @@ function Registration() {
             onSubmit={formik.handleSubmit}
           >
             <div className="w-full grid grid-cols-1 container mx-auto sm:p-12 p-2 gap-6 justify-items-center">
-              <h1 className="text-pink-400 font-bold text-[2rem]">
+              <h1 className="text-blue-400 font-bold text-[2rem]">
                 Registration Form
               </h1>
               {/*  */}
@@ -129,16 +129,14 @@ function Registration() {
               {/*  */}
               <button
                 type="submit"
-                className="text-pink-400 transition delay-100 bg-four-colors w-full p-3 text-[1.3rem] font-bold rounded-lg hover:bg-four-colors-hover mt-3"
+                className=" bg-blue-400 hover:bg-blue-600 w-full p-3 text-[1.3rem] font-bold rounded-lg mt-3 transition-all duration-500 ease-in-out text-white"
               >
                 Submit
               </button>
               <div className="bg-neutral-50 p-4 sm:w-full rounded-md">
-                <div className="w-full text-blue-400 flex justify-between">
+                <div className="w-full text-blue-400 flex justify-between font-bold">
                   <span>Already have an Account?</span>
-                  <Link className="hover:text-pink-400" to={"/"}>
-                    Sign In
-                  </Link>
+                  <Link to={"/"}>Sign In</Link>
                 </div>
               </div>
             </div>

@@ -24,3 +24,7 @@
   box-shadow: 0 4px 30px #4747470b;
   backdrop-filter: blur(7.1px);
 }
+
+.bg {
+  background: url("./assets//Images/department.jpg");
+}

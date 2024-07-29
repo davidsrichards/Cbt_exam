@@ -5,7 +5,7 @@ function SignUpOrSignIn({ question, action, to }) {
     <>
       <NavLink
         to={to}
-        className=" flex w-full  mt-20 items-center justify-center text-[1.3rem] text-pink-400 gap-4 font-bold"
+        className=" flex w-full  mt-20 items-center justify-center  text-white gap-4 font-bold text-[1.6rem] underline"
       >
         <span>{question}</span> <span>{action}</span>
       </NavLink>

@@ -103,7 +103,7 @@ function GeenrateOTP() {
         <div className="flex justify-center items-center h-screen ">
           <div className={`${style.textbox} shade`}>
             <div className="title flex flex-col items-center">
-              <h4 className="text-5xl font-bold">GeenrateOTP</h4>
+              <h4 className="text-5xl font-bold">GenerateOTP</h4>
               <span className="py-4 text-xl w-2/3 text-center text-gray-500">
                 Enter OTP
               </span>
@@ -141,7 +141,7 @@ function GeenrateOTP() {
         text-center mt-8"
               >
                 <button type="submit" className={`${style.btn}`}>
-                  Sign In
+                  Verify
                 </button>
               </div>
             </form>

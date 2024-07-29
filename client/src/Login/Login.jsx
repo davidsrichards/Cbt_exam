@@ -53,7 +53,7 @@ function Login() {
 
   return (
     <div className="grid">
-      <div className="flex flex-col items-center justify-center bg-[url(https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)] bg-center bg-cover sm:bg-fixed rounded-lg w-full h-screen relative bg-fixed overflow-auto">
+      <div className="flex flex-col items-center justify-center bg-[url(https://images.pexels.com/photos/256559/pexels-photo-256559.jpeg?auto=compress&cs=tinysrgb&w=600)] bg-center bg-cover sm:bg-fixed rounded-lg w-full h-screen relative bg-fixed overflow-auto">
         <div className="fixed -top-10 right-10">
           <SignUpOrSignIn question={"Admin"} to={"/admin-login"} />
         </div>
@@ -65,7 +65,7 @@ function Login() {
           onSubmit={formik.handleSubmit}
         >
           <div className="grid grid-cols-1 transition justify-items-center container mx-auto  lg:w-1/2 lg:p-0 p-4 m-4 w-full">
-            <h1 className=" text-white text-[1.2rem] mt-[8rem] font-bold sm:pb-0  pb-6">
+            <h1 className="text-[1.4rem] mt-[8rem] font-bold sm:pb-0  pb-6 text-white">
               Sign In to Your Account
             </h1>
 
@@ -94,7 +94,7 @@ function Login() {
             {/*  */}
             <button
               type="submit"
-              className="mt-6 w-full p-3 bg-four-colors rounded-sm text-[1.2rem] font-bold hover:bg-four-colors-hover text-pink-400 transition-all duration-300 ease-in-out"
+              className="mt-6 w-full p-3 rounded-sm text-[1.2rem] font-bold bg-blue-400 text-white hover:bg-blue-600 transition-all duration-500 ease-in-out"
             >
               Submit
             </button>
@@ -102,36 +102,40 @@ function Login() {
 
             {/*  */}
             <div className="flex items-center justify-center text-white w-full mt-6"></div>
-            {/*  */}
-            <div className="flex items-center justify-between w-full mt-8 text-[1.1rem] font-normal text-slate-200">
-              <div className="flex items-center">
-                <input
-                  type="checkBox"
-                  className="w-[3rem] h-[18px]  accent-blue-400"
-                />
-                <span className="text-blue-400">Remember me</span>
-              </div>
-              <Link to={"/recover"}>
-                <p className="text-blue-400 cursor-pointer">Forget password?</p>
-              </Link>
-            </div>
           </div>
         </form>
         {/*  */}
 
         {/*  */}
-        <div className="text-white gap-4 mt-6 grid sm:grid-cols-2 transition justify-items-center container mx-auto  lg:w-1/2  p-6 m-4  bg-neutral-50 rounded-md">
-          <button className="group/item flex items-center ring-1 ring-slate-200 w-full h-[2.5rem] justify-center rounded-sm shadow-sm gap-3 text-[1.2rem] hover:ring-blue-400 transition-all duration-300 ease-in-out bg-four-colors">
-            <FcGoogle className="group/item transition text-[1.5rem] group-hover/item:scale-125 " />
+        <div className="text-white gap-4 mt-6 transition justify-items-center container mx-auto  lg:w-1/2  p-2 m-4  bg-neutral-50 rounded-md">
+          {/*  */}
+          <div className="flex items-center justify-between w-full mt-8 text-[1.1rem] font-normal text-slate-200 pb-4">
+            <div className="flex items-center">
+              <input
+                type="checkBox"
+                className="w-[3rem] h-[18px]  accent-blue-400"
+              />
+              <span className="text-blue-400 font-bold">Remember me</span>
+            </div>
+            <Link to={"/recover"}>
+              <p className="text-blue-400 cursor-pointer font-bold">
+                Forget password?
+              </p>
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <button className="group/item flex items-center ring-1 ring-slate-200 w-full h-[2.5rem] justify-center rounded-md shadow-sm gap-3 text-[1.2rem] hover:ring-blue-400 transition-all duration-300 ease-in-out bg-blue-400 hover:bg-blue-600 text-white">
+              <FcGoogle className="group/item transition text-[1.5rem] group-hover/item:scale-125 " />
 
-            <p className="text-blue-400">Google</p>
-          </button>
+              <p>Google</p>
+            </button>
 
-          <button className="group/item flex items-center ring-1 ring-slate-200 w-full h-[2.5rem] justify-center rounded-sm shadow-sm gap-3 text-[1.2rem] hover:ring-blue-400 transition-all duration-300 ease-in-out bg-four-colors-hover">
-            <FaDiscord className="text-[1.5rem] transition group-hover/item:scale-125 text-pink-400" />
-            <p className="text-blue-400">Discord</p>
-          </button>
-          <div className="w-full text-blue-400 flex justify-between col-span-2 container p-4">
+            <button className="group/item flex items-center ring-1 ring-slate-200 w-full h-[2.5rem] justify-center rounded-md shadow-sm gap-3 text-[1.2rem] hover:ring-blue-400 transition-all duration-300 ease-in-out  bg-blue-400 hover:bg-blue-600 text-white">
+              <FaDiscord className="text-[1.5rem] transition group-hover/item:scale-125" />
+              <p>Discord</p>
+            </button>
+          </div>
+          <div className="w-full text-blue-400 flex justify-between col-span-2 container p-4 font-bold">
             <span>Dont have an Account?</span>
             <Link className="hover:text-pink-400" to={"/registration"}>
               Sign Up
