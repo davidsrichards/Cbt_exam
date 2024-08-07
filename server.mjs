@@ -5,6 +5,7 @@ import passport from "passport";
 import session from "express-session";
 import regRout from "./users/users.mjs";
 import quizRouts from "./QUIZ/endPoints/endPoints.mjs";
+import examRout from "./QUIZ/EXAM/EXAM-ENDPOINT/exam-endpoints.mjs";
 import loginRout from "./LOGIN/user/user.mjs";
 import getRout from "./getUser-endpoint/getUser-endpoint.mjs";
 import adminRout from "./AdminRegistration/AdminEndPoints/admin-endpoint.mjs";
@@ -36,7 +37,10 @@ app.use(cookieParser("daverich"));
 mongoose
   .connect(process.env.MONGODB_URL)
   .then(() => {
-    console.log("Connected to data base");
+    app.listen(port, () => {
+      console.log(`start listening on port : ${port}`);
+      console.log("Connected to Database");
+    });
   })
   .catch((err) => console.log(err));
 
@@ -65,6 +69,7 @@ app.use(getRout);
 app.use(regRout);
 app.use(loginRout);
 app.use(quizRouts);
+app.use(examRout);
 app.use(googleRout);
 app.use(discordRout);
 app.use(adminRout);
@@ -75,5 +80,3 @@ app.get("*", (req, res) => {
 });
 
 ///////////////
-
-app.listen(port, () => console.log(`start listening on port : ${port}`));

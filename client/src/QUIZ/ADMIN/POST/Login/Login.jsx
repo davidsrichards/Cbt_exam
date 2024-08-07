@@ -28,7 +28,7 @@ function AdminLogin() {
         });
         loginPromise
           .then(() => {
-            return navigate("/admin-main");
+            return navigate("/admin-dashboard");
           })
           .catch((err) => {
             return err;

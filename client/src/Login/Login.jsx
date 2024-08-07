@@ -46,7 +46,6 @@ function Login() {
 
   useEffect(() => {
     dispatch(resetUsernameAction());
-
     dispatch(resetAllAction());
     dispatch(resetResultAction());
   }, []);

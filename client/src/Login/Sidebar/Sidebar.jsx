@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import { FaAngleDown } from "react-icons/fa";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import SidebarItems from "./SidebarItem";
 
 function SideBar({ username }) {
+  const [showCourse, setShowCourse] = useState(false);
   const dispatch = useDispatch();
   const [profileVisible, setProfileVisible] = useState(false);
   return (
@@ -18,6 +20,35 @@ function SideBar({ username }) {
       {/* Admin Menu */}
       <nav className="mt-4">
         <ul>
+          <li className="p-4 hover:bg-gray-700 cursor-pointer flex items-center justify-between">
+            <Link to={"institution"}>Select Course</Link>
+            <FaAngleDown
+              className={`${
+                showCourse ? " rotate-180" : " rotate-0"
+              } transition duration-300 ease-in-out`}
+              onClick={() => setShowCourse((prev) => !prev)}
+            />
+          </li>
+          <div className={`${showCourse ? "block" : "hidden"} font-serif`}>
+            <li>
+              <SidebarItems to={"cmp211-init"} value={"CMP 221"} />
+            </li>
+            <li>
+              <SidebarItems to={"cmp222-init"} value={"CMP 222"} />
+            </li>
+            <li>
+              <SidebarItems to={"cmp223-init"} value={"CMP 223"} />
+            </li>
+            <li>
+              <SidebarItems to={"gst222-init"} value={"GST 222"} />
+            </li>
+            {/*  <li>
+              <SidebarItems to={"#"} value={"CMP 224"} />
+            </li>
+            <li>
+              <SidebarItems to={"#"} value={"CMP 225"} />
+            </li> */}
+          </div>
           <li className="p-4 hover:bg-gray-700 cursor-pointer  flex items-center justify-between">
             <Link to={"profile"}>Profile</Link>
             <FaAngleDown

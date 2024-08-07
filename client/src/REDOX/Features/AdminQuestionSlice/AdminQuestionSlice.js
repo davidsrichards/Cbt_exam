@@ -12,8 +12,13 @@ const AdminQuestionSlice = createSlice({
       state.questions.push(question);
       state.answers.push(answers);
     },
+    resetAdminQuestions: (state, action) => {
+      state.questions = [];
+      state.answers = [];
+    },
   },
 });
 
-export const { addQuestionAction } = AdminQuestionSlice.actions;
+export const { addQuestionAction, resetAdminQuestions } =
+  AdminQuestionSlice.actions;
 export default AdminQuestionSlice.reducer;
