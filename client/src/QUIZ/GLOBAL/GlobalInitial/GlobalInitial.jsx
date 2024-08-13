@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   resetTimerAction,
@@ -17,15 +17,25 @@ import { gst222ResetAllActions } from "../../../REDOX/Features/GST222/Gst222Ques
 
 function GlobalInitial({ length, setter, to, url }) {
   const dispatch = useDispatch();
+  const [server, setServer] = useState({
+    serverError: false,
+    isLoading: false,
+  });
 
   useEffect(() => {
     const getLength = async () => {
+      setServer((prev) => ({ ...prev, isLoading: true }));
       try {
         const response = await axios.get(url);
+
         if (response) {
+          setServer((prev) => ({ ...prev, isLoading: false }));
+          setServer((prev) => ({ ...prev, serverError: false }));
           setter(response?.data[0].questions);
         }
       } catch (error) {
+        setServer((prev) => ({ ...prev, serverError: true }));
+        setServer((prev) => ({ ...prev, isLoading: false }));
         return error;
       }
     };
@@ -49,6 +59,12 @@ function GlobalInitial({ length, setter, to, url }) {
   useEffect(() => {
     dispatch(resetTimerAction());
   }, []);
+
+  // if loading
+
+  if (server.isLoading) return <div>Loading...</div>;
+  if (server.serverError) return <div>Server Error</div>;
+
   return (
     <>
       <div className=" bg-[url(https://images.unsplash.com/photo-1501139083538-0139583c060f?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] w-full h-screen bg-cover bg-center bg-fixed bg-no-repeat flex items-center justify-center">

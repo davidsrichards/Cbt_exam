@@ -38,7 +38,6 @@ function Cmp211Quiz() {
   const handleNextButton = () => {
     if (trace < question.length - 1) {
       dispatch(moveToNextQuestionAction());
-
       if (results.length <= trace) {
         setMoved(true);
         dispatch(cmp211pushAnswerAction(select));

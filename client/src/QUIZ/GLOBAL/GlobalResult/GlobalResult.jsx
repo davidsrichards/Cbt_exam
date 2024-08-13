@@ -7,6 +7,10 @@ import { startTimerAction } from "../../../REDOX/Features/TimerSlice/TimerSlice"
 function GlobalResult({ username, onpoint, totalAttempt, resetAll, to }) {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(startTimerAction(false));
+  }, []);
+
   return (
     <>
       <div className="flex flex-col items-center justify-center h-screen gap-10 contain-content">

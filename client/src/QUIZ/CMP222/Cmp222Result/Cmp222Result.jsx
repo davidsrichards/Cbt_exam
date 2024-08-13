@@ -17,7 +17,7 @@ function Cmp222Results() {
   // total attempts
   const totalAttempts = checkTotalAttempt(results);
   // total points
-  const totalPoints = checkTotalOnpoint(results, answers, 8);
+  const totalPoints = checkTotalOnpoint(results, answers, 2);
 
   useSelector(() => {
     const postResults = async () => {

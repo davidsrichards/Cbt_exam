@@ -7,6 +7,7 @@ import {
 } from "../../../REDOX/Features/CMP222/Cmp222QuestionsSlice";
 import {
   cmp222pushAnswerAction,
+  cmp222resetSeletctAction,
   cmp222SelectActions,
   cmp222UpdatedResultAction,
 } from "../../../REDOX/Features/CMP222/Cmp222ResultSlice";
@@ -37,7 +38,6 @@ function Cmp222Quiz() {
   const handleNextButton = () => {
     if (trace < question.length - 1) {
       dispatch(cmp222moveToNextQuestionAction());
-
       if (results.length <= trace) {
         setMoved(true);
         dispatch(cmp222pushAnswerAction(select));
@@ -66,10 +66,13 @@ function Cmp222Quiz() {
     navigateToResult();
   };
 
-  useEffect(() => {
-    dispatch(cmp222UpdatedResultAction({ trace, select }));
-  });
+  // print result
 
+  useEffect(() => {
+    if (moved) {
+      dispatch(cmp222UpdatedResultAction({ trace, select }));
+    }
+  }, [select, trace, moved, results]);
   // if time up
 
   useEffect(() => {

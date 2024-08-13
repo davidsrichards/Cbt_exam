@@ -49,8 +49,8 @@ function NavigationBar({ username }) {
     <nav className="bg-[#f0f0f0] hover:bg-[#aaa] h-[5rem] fixed w-full left-0 z-10 top-0">
       {started && (
         <div
-          className={`absolute top-8 left-[50%] font-mono font-bold text-[1.2rem] ${
-            minutes < 3 ? "text-red-600" : ""
+          className={`absolute top-6 left-[50%] font-mono font-bold text-[1.2rem] bg-green-500 p-2 rounded-md px-3  ${
+            minutes < 3 ? "text-red-600" : "text-white"
           }`}
         >
           {minutes < 10 ? "0" + minutes : minutes} :{" "}

@@ -30,7 +30,7 @@ function GlobalQuestions({
                 id={`q${i}-option`}
                 onChange={() => {
                   dispatch(selected(i));
-                  dispatch(updated({ trace, select }));
+                  dispatch(updated(i));
                 }}
               />
 
