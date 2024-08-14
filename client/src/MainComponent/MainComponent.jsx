@@ -97,6 +97,7 @@ function MainComponenet() {
         </Route>
         <Route path="/admin-post" element={<AdminPost />} />
         <Route path="/timer" element={<GlobalTimer />} />
+        <Route path="*" element={<Login />} />
       </Routes>
     </>
   );

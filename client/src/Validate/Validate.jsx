@@ -37,8 +37,9 @@ export const validateUsername = (values) => {
 /// protect rout
 
 export const ProtectQuiz = ({ children }) => {
-  const { username } = useSelector((state) => state.user);
-  if (!username) return <Navigate to={"/"} replace={true}></Navigate>;
+  const user = useSelector((state) => state.user.username);
+  const { username } = useSelector((state) => state.user.googleInformation);
+  if (!(user || username)) return <Navigate to={"/"} replace={true}></Navigate>;
   return children;
 };
 

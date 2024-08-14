@@ -92,3 +92,14 @@ export async function updateuserInformation(username, credentials) {
     return Promise.reject(error);
   }
 }
+
+// google login
+
+export async function LoginWithGoogle() {
+  try {
+    const data = await axios.get(`${BASE_URL}/google/status`);
+    return Promise.resolve(data);
+  } catch (error) {
+    return Promise.reject(error);
+  }
+}

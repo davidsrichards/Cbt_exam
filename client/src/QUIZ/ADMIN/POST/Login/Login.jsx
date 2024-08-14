@@ -41,7 +41,7 @@ function AdminLogin() {
 
   return (
     <>
-      <div className="bg-[url(https://images.pexels.com/photos/256559/pexels-photo-256559.jpeg?auto=compress&cs=tinysrgb&w=600)] bg-center bg-cover bg-fixed rounded-lg  h-screen w-full flex items-center justify-center overflow-auto">
+      <div className="admin-login">
         <Toaster position="center-top" reverseOrder={false}></Toaster>
         <form
           action=""
@@ -50,7 +50,7 @@ function AdminLogin() {
           onSubmit={formik.handleSubmit}
         >
           <div className="grid grid-cols-1 transition justify-items-center container mx-auto  sm:w-1/2   m-4 w-full  p-2">
-            <h1 className="text-[2rem] pb-6 text-blue-400 font-bold">
+            <h1 className="text-[2rem] pb-6 text-white  font-bold">
               Admin Sign In
             </h1>
 

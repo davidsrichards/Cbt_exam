@@ -65,6 +65,7 @@ app.use(morgan("tiny"));
 
 //////////////////////////////////////
 
+app.use(googleRout);
 app.use(getRout);
 app.use(regRout);
 app.use(loginRout);

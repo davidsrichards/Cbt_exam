@@ -4,6 +4,7 @@ const UserSlice = createSlice({
   name: "User",
   initialState: {
     username: "",
+    googleInformation: [],
   },
   reducers: {
     addUserName: (state, action) => {
@@ -12,9 +13,14 @@ const UserSlice = createSlice({
     resetUsernameAction: (state, action) => {
       state.username = "";
     },
+
+    pushGoogleInformationAction: (state, action) => {
+      state.googleInformation = action.payload;
+    },
   },
 });
 
-export const { addUserName, resetUsernameAction } = UserSlice.actions;
+export const { addUserName, resetUsernameAction, pushGoogleInformationAction } =
+  UserSlice.actions;
 
 export default UserSlice.reducer;

@@ -6,8 +6,9 @@ const googleRout = express.Router();
 
 ///// URLS
 
-const failureMessage = "/google/login/error";
+/* const failureMessage = "/google/login/error"; */
 const successRedirect = "/google/login/success";
+const failureRedirect = "/";
 
 /// verification
 
@@ -21,8 +22,9 @@ googleRout.get(
 googleRout.get(
   "/api/user/googleCallback",
   passport.authenticate("google", {
-    failureMessage: failureMessage,
+    /*     failureMessage: failureMessage, */
     successRedirect: successRedirect,
+    failureRedirect: failureRedirect,
   }),
   (req, res) => {
     res.send("Thank you for signing in");

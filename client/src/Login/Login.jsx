@@ -4,18 +4,21 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
   addUserName,
+  pushGoogleInformationAction,
   resetUsernameAction,
 } from "../REDOX/Features/UserSlice/UserSlice";
 import { validateLogin } from "../Validate/Validate";
 import { useFormik } from "formik";
 import toast, { Toaster } from "react-hot-toast";
-import { UserLogin } from "../Helper/ServerHelper";
-import { useEffect } from "react";
+import { LoginWithGoogle, UserLogin } from "../Helper/ServerHelper";
+import { useEffect, useState } from "react";
 import { resetAllAction } from "../QUIZ/Hooks/FetchQuestions/FetchQuestions";
 import { resetResultAction } from "../QUIZ/Result/ResultHelperFunction/ResultHelperFunction";
 import SignUpOrSignIn from "../SignUp/SignUpOrSignIn";
+import axios from "axios";
 
 function Login() {
+  const [googleData, setGoogleData] = useState({ username: "", email: "" });
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const formik = useFormik({
@@ -49,6 +52,28 @@ function Login() {
     dispatch(resetAllAction());
     dispatch(resetResultAction());
   }, []);
+
+  // login with google
+
+  async function loginWithGoogle() {
+    window.open("/api/user/google/login");
+    async function getUserInformation() {
+      try {
+        const response = await LoginWithGoogle();
+        if (response && response.data) {
+          dispatch(
+            pushGoogleInformationAction({
+              username: response.data.fullName,
+              email: response.data.email,
+            })
+          );
+        }
+      } catch (error) {
+        return error;
+      }
+    }
+    getUserInformation();
+  }
 
   return (
     <div className="student-login">
@@ -121,17 +146,20 @@ function Login() {
             </p>
           </Link>
         </div>
-        <div className="grid grid-cols-2 gap-4">
-          <button className="group/item flex items-center ring-1 ring-slate-200 w-full h-[2.5rem] justify-center rounded-md shadow-sm gap-3 text-[1.2rem] hover:ring-blue-400 transition-all duration-300 ease-in-out bg-blue-400 hover:bg-blue-600 text-white">
-            <FcGoogle className="group/item transition text-[1.5rem] group-hover/item:scale-125 " />
+        <div className="grid ">
+          <button
+            className="group/item flex items-center ring-1 ring-slate-200 w-full h-[2.5rem] justify-center rounded-md shadow-sm gap-3 text-[1.2rem] hover:ring-blue-400 transition-all duration-300 ease-in-out bg-blue-400 hover:bg-blue-600 text-white"
+            onClick={loginWithGoogle}
+          >
+            <FcGoogle />
 
             <p>Google</p>
           </button>
 
-          <button className="group/item flex items-center ring-1 ring-slate-200 w-full h-[2.5rem] justify-center rounded-md shadow-sm gap-3 text-[1.2rem] hover:ring-blue-400 transition-all duration-300 ease-in-out  bg-blue-400 hover:bg-blue-600 text-white">
+          {/*   <button className="group/item flex items-center ring-1 ring-slate-200 w-full h-[2.5rem] justify-center rounded-md shadow-sm gap-3 text-[1.2rem] hover:ring-blue-400 transition-all duration-300 ease-in-out  bg-blue-400 hover:bg-blue-600 text-white">
             <FaDiscord className="text-[1.5rem] transition group-hover/item:scale-125" />
             <p>Discord</p>
-          </button>
+          </button> */}
         </div>
         <div className="w-full text-blue-400 flex justify-between col-span-2 container p-4 font-bold">
           <span>Dont have an Account?</span>

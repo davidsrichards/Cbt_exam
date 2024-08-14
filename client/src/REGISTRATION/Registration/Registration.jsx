@@ -31,7 +31,7 @@ function Registration() {
   return (
     <>
       <div>
-        <div className="bg-[url(https://images.pexels.com/photos/256559/pexels-photo-256559.jpeg?auto=compress&cs=tinysrgb&w=600)] bg-center bg-cover bg-fixed rounded-lg overflow-auto">
+        <div className="student-registration">
           <Toaster position="top-center" reverseOrder={false}></Toaster>
           <form
             action=""
@@ -134,7 +134,7 @@ function Registration() {
                 Submit
               </button>
               <div className="bg-neutral-50 p-4 sm:w-full rounded-md">
-                <div className="w-full text-blue-400 flex justify-between font-bold">
+                <div className="w-full text-blue-400 flex justify-between font-bold gap-4">
                   <span>Already have an Account?</span>
                   <Link to={"/"}>Sign In</Link>
                 </div>
