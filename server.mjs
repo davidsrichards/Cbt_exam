@@ -35,7 +35,7 @@ app.use(cookieParser("daverich"));
 ////////////////
 
 mongoose
-  .connect(process.env.MONGODB_URL_LOCAL)
+  .connect(process.env.MONGODB_URL)
   .then(() => {
     app.listen(port, () => {
       console.log(`start listening on port : ${port}`);

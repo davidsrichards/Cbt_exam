@@ -20,7 +20,7 @@ googleRout.get(
 //// CALLBACK
 
 googleRout.get(
-  "/api/user/googleCallback",
+  "/api/user/googleCallback" || "/api/user/googleRenderCallback",
   passport.authenticate("google", {
     /*     failureMessage: failureMessage, */
     successRedirect: successRedirect,
