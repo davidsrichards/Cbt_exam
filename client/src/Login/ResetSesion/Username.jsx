@@ -31,10 +31,10 @@ function Username() {
   });
   return (
     <>
-      <div className="container mx-auto shade">
+      <div className="shade w-full">
         <Toaster position="center-top" reverseOrder={false}></Toaster>
-        <div className="flex justify-center items-center h-screen ">
-          <div className={`${style.textbox} w-[25rem] shade overflow-hidden`}>
+        <div className="flex justify-center items-center h-screen p-2">
+          <div className={`${style.textbox} w-[25rem] shade mx-auto`}>
             <div className="title flex flex-col items-center">
               <h4 className="text-5xl font-bold">Hello Again</h4>
               <span className="py-4 text-xl w-2/3 text-center text-gray-500">

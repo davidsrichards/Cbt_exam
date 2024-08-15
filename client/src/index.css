@@ -25,10 +25,6 @@
   backdrop-filter: blur(7.1px);
 }
 
-.bg {
-  background: url("./assets//Images/department.jpg");
-}
-
 .active {
   @apply text-red-400;
 }

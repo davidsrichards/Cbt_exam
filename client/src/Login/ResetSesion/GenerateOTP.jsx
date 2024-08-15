@@ -100,24 +100,28 @@ function GeenrateOTP() {
       {" "}
       <div className="container mx-auto">
         <Toaster position="top-center" reverseOrder={false}></Toaster>
-        <div className="flex justify-center items-center h-screen ">
-          <div className={`${style.textbox} shade`}>
+        <div className="flex justify-center items-center h-screen  border-green-500">
+          <div className={`${style.textbox} shade border-blue-500 mx-auto`}>
             <div className="title flex flex-col items-center">
               <h4 className="text-5xl font-bold">GenerateOTP</h4>
               <span className="py-4 text-xl w-2/3 text-center text-gray-500">
                 Enter OTP
               </span>
             </div>
-            <form action="" className="pt-10 w-full" onSubmit={onSubmit}>
-              <div className={`${style.glass} mx-auto p-4`}>
-                <div className="input text-center flex flex-col w-full pb-6 p-4 ">
+            <form
+              action=""
+              className="pt-10 w-full flex flex-col items-center justify-center"
+              onSubmit={onSubmit}
+            >
+              <div className={`${style.glass} p-3 border-pink-400`}>
+                <div className="input text-center justify-center flex flex-col w-full pb-6 p-4">
                   {" "}
                   <span className="py-4 text-sm text-left text-gray-500">
                     please enter{" "}
                     <span className="font-semibold text-black">4</span> Digits
                     sent to your email address
                   </span>
-                  <div className=" inline-block space-x-4">
+                  <div className=" inline-block space-x-4 ">
                     {Object.keys(codes).map((code, index) => (
                       <input
                         key={code}
@@ -138,7 +142,7 @@ function GeenrateOTP() {
               </div>
               <div
                 className="
-        text-center mt-8"
+        text-center mt-8 w-full"
               >
                 <button type="submit" className={`${style.btn}`}>
                   Verify
