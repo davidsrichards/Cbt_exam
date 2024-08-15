@@ -46,9 +46,9 @@ function MainComponenet() {
         <Route
           path="/google/login/success"
           element={
-            <ProtectQuiz>
+            
               <DashBoard />
-            </ProtectQuiz>
+            
           }
         >
           <Route path="quiz" element={<Quiz />} />
