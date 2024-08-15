@@ -7,22 +7,22 @@ import { startTimerAction } from "../../REDOX/Features/TimerSlice/TimerSlice";
 
 function DashBoard() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.username);
+  const { username } = useSelector((state) => state.user);
 
   useEffect(() => {
     dispatch(startTimerAction(false));
   }, []);
 
   // print google information
-
-  const { username } = useSelector((state) => state.user.googleInformation);
+  /* 
+  const { username } = useSelector((state) => state.user.googleInformation); */
 
   return (
     <>
       <>
         <div className="grid lg:grid-cols-12 w-full h-scree transition duration-300 ease-in-out">
-          <SideBar username={user || ""} />
-          <NavigationBar username={user || username} />
+          <SideBar username={username} />
+          <NavigationBar username={username} />
           <div className="relative lg:col-span-8 md:col-span-6 lg:col-start-4 lg:col-end-12 top-[4rem] transition duration-300 ease-in-out">
             {" "}
             <div className="h-screen flex items-center justify-center">
