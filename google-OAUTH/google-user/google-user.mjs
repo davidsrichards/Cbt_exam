@@ -8,9 +8,9 @@ const googleRout = express.Router();
 
 /* const failureMessage = "/google/login/error"; */
 const successRedirect =
-  "http://localhost:4000/google/login/success" ||
-  "https://cbt-app-87rd.onrender.com/google/login/success";
-const failureRedirect = "https://cbt-app-87rd.onrender.com";
+  "https://quiz-application-j057.onrender.com/google/login/success" ||
+  "http://localhost:4000/google/login/success";
+const failureRedirect = "https://quiz-application-j057.onrender.com";
 
 /// verification
 
@@ -22,8 +22,8 @@ googleRout.get(
 //// CALLBACK
 
 googleRout.get(
-  "/api/user/googleCallback" ||
-    "https://cbt-app-87rd.onrender.com/api/user/googleRenderCallback",
+  /* "/api/user/googleCallback" || */
+  "https://quiz-application-j057.onrender.com/api/user/googleRenderCallback",
   passport.authenticate("google", {
     /*     failureMessage: failureMessage, */
     successRedirect: successRedirect,
