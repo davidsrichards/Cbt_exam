@@ -10,8 +10,7 @@ const googleRout = express.Router();
 const successRedirect =
   "http://localhost:4000/google/login/success" ||
   "https://cbt-app-87rd.onrender.com/google/login/success";
-const failureRedirect =
-  "http://localhost:4000" || "https://cbt-app-87rd.onrender.com";
+const failureRedirect = "https://cbt-app-87rd.onrender.com";
 
 /// verification
 
