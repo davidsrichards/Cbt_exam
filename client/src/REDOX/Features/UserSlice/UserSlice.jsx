@@ -12,6 +12,7 @@ const UserSlice = createSlice({
     },
     resetUsernameAction: (state, action) => {
       state.username = "";
+      state.googleInformation = [];
     },
 
     pushGoogleInformationAction: (state, action) => {
