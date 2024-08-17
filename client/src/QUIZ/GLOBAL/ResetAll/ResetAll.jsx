@@ -4,6 +4,8 @@ import { cmp222ResetAllActions } from "../../../REDOX/Features/CMP222/Cmp222Ques
 import { cmp222resetResultAction } from "../../../REDOX/Features/CMP222/Cmp222ResultSlice";
 import { cmp223ResetAllActions } from "../../../REDOX/Features/CMP223/Cmp223QuestionSlice";
 import { cmp223resetResultAction } from "../../../REDOX/Features/CMP223/Cmp223ResultSlice";
+import { cmp225ResetAllActions } from "../../../REDOX/Features/CMP225/Cmp225QuestionSlice";
+import { cmp225resetResultAction } from "../../../REDOX/Features/CMP225/Cmp225ResultSlice";
 import { gst222ResetAllActions } from "../../../REDOX/Features/GST222/Gst222QuestionSlice";
 import { gst222resetResultAction } from "../../../REDOX/Features/GST222/Gst222ResultSlice";
 import {
@@ -20,6 +22,8 @@ export function GlobalResetAllActions(dispatch) {
   dispatch(cmp211ResetAllActions());
   dispatch(cmp222ResetAllActions());
   dispatch(cmp223ResetAllActions());
+  dispatch(cmp225ResetAllActions());
+  dispatch(cmp225resetResultAction());
   dispatch(gst222ResetAllActions());
   dispatch(resetTimerAction());
 }

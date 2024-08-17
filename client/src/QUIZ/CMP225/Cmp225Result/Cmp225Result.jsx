@@ -1,23 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
-import GlobalResult from "../../GLOBAL/GlobalResult/GlobalResult";
-import { cmp223ResetAllActions } from "../../../REDOX/Features/CMP223/Cmp223QuestionSlice";
-import { cmp223resetResultAction } from "../../../REDOX/Features/CMP223/Cmp223ResultSlice";
+
 import { useEffect } from "react";
+import { cmp225ResetAllActions } from "../../../REDOX/Features/CMP225/Cmp225QuestionSlice";
+
+import GlobalResult from "../../GLOBAL/GlobalResult/GlobalResult";
+import { cmp225resetResultAction } from "../../../REDOX/Features/CMP225/Cmp225ResultSlice";
 import {
   checkTotalAttempt,
   checkTotalOnpoint,
 } from "../../GLOBAL/GlobalHelperFunction/GlobalHelperFunction";
 
-function Cmp223Results() {
+function Cmp225Results() {
   const dispatch = useDispatch();
-  const { answers } = useSelector((state) => state.cmp223question);
-  const { results } = useSelector((state) => state.cmp223Result);
+  const { answers } = useSelector((state) => state.cmp225question);
+  const { results } = useSelector((state) => state.cmp225Result);
   // total attempts
   const totalAttempts = checkTotalAttempt(results);
   // total points
   const totalPoints = checkTotalOnpoint(results, answers, 2);
 
-  useEffect(() => {
+  useSelector(() => {
     const postResults = async () => {
       try {
         const reponse = await GlobalResultHelperFunction(
@@ -27,7 +29,7 @@ function Cmp223Results() {
             point: totalPoints,
             achieved: totalPoints <= 40 ? "Failed" : "Passed",
           },
-          "/cmp223/result"
+          "/cmp225/result"
         );
       } catch (error) {
         return error;
@@ -39,10 +41,9 @@ function Cmp223Results() {
   // reset all
 
   const resetAllActions = () => {
-    dispatch(cmp223ResetAllActions());
-    dispatch(cmp223resetResultAction());
+    dispatch(cmp225ResetAllActions());
+    dispatch(cmp225resetResultAction());
   };
-
   return (
     <>
       <GlobalResult
@@ -50,10 +51,10 @@ function Cmp223Results() {
         totalAttempt={totalAttempts}
         username={"Dauda"}
         resetAll={resetAllActions}
-        to={"/google/login/success/cmp223"}
+        to={"/google/login/success/cmp225"}
       />
     </>
   );
 }
 
-export default Cmp223Results;
+export default Cmp225Results;

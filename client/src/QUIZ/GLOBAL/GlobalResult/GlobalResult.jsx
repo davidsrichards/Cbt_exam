@@ -11,6 +11,18 @@ function GlobalResult({ username, onpoint, totalAttempt, resetAll, to }) {
     dispatch(startTimerAction(false));
   }, []);
 
+  // achieved grade
+
+  const achievedGrade = (achieved) => {
+    let grade = "";
+    if (achieved < 40) grade = "F";
+    else if (achieved >= 40 && achieved < 50) grade = "D";
+    else if (achieved >= 50 && achieved < 60) grade = "C";
+    else if (achieved >= 60 && achieved < 70) grade = "B";
+    else grade = "A";
+    return grade;
+  };
+
   return (
     <>
       <div className="flex flex-col items-center justify-center h-screen gap-10 contain-content">
@@ -43,7 +55,7 @@ function GlobalResult({ username, onpoint, totalAttempt, resetAll, to }) {
                   onpoint <= 40 ? "red-500" : "green-500"
                 }`}
               >
-                {`${onpoint <= 40 ? "Failed" : "Pass"}`}
+                {`${achievedGrade(onpoint)}`}
               </td>
               <td className="border-1 text-left p-6 border-2 border-[#ddd]">
                 {totalAttempt}

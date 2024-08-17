@@ -22,13 +22,13 @@ import Cmp211AdminPost from "../QUIZ/ADMIN/ADMINS/CMP211ADMIN/Cmp211AdminPost/Cp
 import AdminDashBoard from "../QUIZ/ADMIN-DASHBOARD/AdminDashboard/AdminDashboard";
 import Cmp222AdminPost from "../QUIZ/ADMIN/ADMINS/CMP222Admin/Cmp222Adminpost/Cmp222AdminQuestion/Cmp222Adminpost";
 import Cmp222AdminQuestion from "../QUIZ/ADMIN/ADMINS/CMP222Admin/Cmp222AdminQuestion/Cmp222AdminQuestion";
-import Cmp223 from "../QUIZ/CMP223/Cmp223";
-import Cmp223Results from "../QUIZ/CMP223/Cmp223Result/Cmp223Result";
 import Cmp211Initial from "../QUIZ/CMP211/Cmp211Initial/Cmp211Initital";
 import Cmp222Initial from "../QUIZ/CMP222/Cmp222Initial/Cmp222Initial";
 import Cmp223Initial from "../QUIZ/CMP223/Cmp223Initial/Cmp223Initial";
-import Cmp223AdminPost from "../QUIZ/ADMIN/ADMINS/CMP223Admin/Cmp223AdminQuestion/Cmp223Adminpost";
 import Cmp223AdminQuestion from "../QUIZ/ADMIN/ADMINS/CMP223Admin/Cmp223Adminpost/Cmp223AdminQuestion";
+import Cmp223 from "../QUIZ/CMP223/Cmp223";
+import Cmp223AdminPost from "../QUIZ/ADMIN/ADMINS/CMP223Admin/Cmp223AdminQuestion/Cmp223Adminpost";
+import Cmp223Results from "../QUIZ/CMP223/Cmp223Result/Cmp223Result";
 import Gst222 from "../QUIZ/GST222/GST222";
 import Gst222Results from "../QUIZ/GST222/GST222Result/GST222Result";
 import Gst222Initial from "../QUIZ/GST222/GST222Initial/GST222Initial";
@@ -36,6 +36,11 @@ import GlobalTimer from "../QUIZ/GLOBAL/GlobalTimer/GlobalTimer";
 import Gst222AdminQuestion from "../QUIZ/ADMIN/ADMINS/GST222ADMIN/Gst222Adminpost/Gst222AdminQuestion";
 import Gst222AdminPost from "../QUIZ/ADMIN/ADMINS/GST222ADMIN/Gst222AdminQuestion/Gst222Adminpost";
 import { ProtectQuiz } from "../Validate/Validate";
+import Cmp225 from "../QUIZ/CMP225/Cmp225";
+import Cmp225Initial from "../QUIZ/CMP225/Cmp225Initial/Cmp225Initial";
+import Cmp225Results from "../QUIZ/CMP225/Cmp225Result/Cmp225Result";
+import Cmp225AdminPost from "../QUIZ/ADMIN/ADMINS/CMP225Admin/Cmp225AdminQuestion/Cmp225Adminpost";
+import Cmp225AdminQuestion from "../QUIZ/ADMIN/ADMINS/CMP225Admin/Cmp225Adminpost/Cmp225AdminQuestion";
 
 function MainComponenet() {
   return (
@@ -63,6 +68,9 @@ function MainComponenet() {
           <Route path="cmp223" element={<Cmp223 />} />
           <Route path="cmp223-init" element={<Cmp223Initial />} />
           <Route path="cmp223-result" element={<Cmp223Results />} />
+          <Route path="cmp225" element={<Cmp225 />} />
+          <Route path="cmp225-init" element={<Cmp225Initial />} />
+          <Route path="cmp225-result" element={<Cmp225Results />} />
           <Route path="gst222" element={<Gst222 />} />
           <Route path="gst222-init" element={<Gst222Initial />} />
           <Route path="gst222-result" element={<Gst222Results />} />
@@ -93,7 +101,11 @@ function MainComponenet() {
             path="gst222-admin-question"
             element={<Gst222AdminQuestion />}
           />
-          <Route path="gst222-admin-post" element={<Gst222AdminPost />} />
+          <Route path="cmp225-admin-post" element={<Cmp225AdminPost />} />
+          <Route
+            path="cmp225-admin-question"
+            element={<Cmp225AdminQuestion />}
+          />
         </Route>
         <Route path="/admin-post" element={<AdminPost />} />
         <Route path="/timer" element={<GlobalTimer />} />

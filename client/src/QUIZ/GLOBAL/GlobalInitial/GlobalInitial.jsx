@@ -14,6 +14,8 @@ import { cmp211ResetAllActions } from "../../../REDOX/Features/CMP211SLICE/cmp21
 import { cmp222ResetAllActions } from "../../../REDOX/Features/CMP222/Cmp222QuestionsSlice";
 import { cmp223ResetAllActions } from "../../../REDOX/Features/CMP223/Cmp223QuestionSlice";
 import { gst222ResetAllActions } from "../../../REDOX/Features/GST222/Gst222QuestionSlice";
+import { cmp225ResetAllActions } from "../../../REDOX/Features/CMP225/Cmp225QuestionSlice";
+import { cmp225resetResultAction } from "../../../REDOX/Features/CMP225/Cmp225ResultSlice";
 
 function GlobalInitial({ length, setter, to, url }) {
   const dispatch = useDispatch();
@@ -46,14 +48,16 @@ function GlobalInitial({ length, setter, to, url }) {
 
   useEffect(() => {
     dispatch(startTimerAction(false));
-    dispatch(cmp211resetResultAction());
-    dispatch(cmp222resetResultAction());
-    dispatch(cmp223resetResultAction());
-    dispatch(gst222resetResultAction());
     dispatch(cmp211ResetAllActions());
     dispatch(cmp222ResetAllActions());
     dispatch(cmp223ResetAllActions());
     dispatch(gst222ResetAllActions());
+    dispatch(cmp211resetResultAction());
+    dispatch(cmp222resetResultAction());
+    dispatch(cmp223resetResultAction());
+    dispatch(gst222resetResultAction());
+    dispatch(cmp225ResetAllActions());
+    dispatch(cmp225resetResultAction());
   }, [dispatch]);
 
   useEffect(() => {
@@ -67,15 +71,15 @@ function GlobalInitial({ length, setter, to, url }) {
 
   return (
     <>
-      <div className=" bg-[url(https://images.unsplash.com/photo-1501139083538-0139583c060f?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] w-full h-screen bg-cover bg-center bg-fixed bg-no-repeat flex items-center justify-center">
-        <div className="text-white flex items-center justify-center flex-col gap-12 bg-neutral-400 p-12 rounded-lg">
+      <div className="global-initial rounded-lg h-screen">
+        <div className="text-white flex items-center justify-center flex-col gap-12 p-12 rounded-lg">
           <ul
             role="list"
-            className="gap-4 flex flex-col text-[1.1rem] items-center"
+            className="text-[1.1rem] items-center space-y-4 text-center"
           >
             <li>you will be given {length?.length} questions</li>
             <li>and each question contains 4 options</li>
-            <li>you are to click on submit once done with the quiz</li>
+            <li>you are to click on Submit once done with the quiz</li>
           </ul>
 
           <NavLink to={to} className="font-bold">

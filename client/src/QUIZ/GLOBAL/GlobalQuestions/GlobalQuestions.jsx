@@ -22,7 +22,7 @@ function GlobalQuestions({
 
         <ul key={trace} className="">
           {questions?.options.map((q, i) => (
-            <li key={i} className="sm:pb-0 pb-2">
+            <li key={i} className="sm:pb-0 pb-2 sm:h-[100px] h-[125px]">
               <input
                 type="radio"
                 value={false}

@@ -40,6 +40,9 @@ function AdminSidebar({ username }) {
               <SidebarItems to={"cmp223-admin-question"} value={"CMP 223"} />
             </li>
             <li>
+              <SidebarItems to={"cmp225-admin-question"} value={"CMP 225"} />
+            </li>
+            <li>
               <SidebarItems to={"gst222-admin-question"} value={"GST 222"} />
             </li>
           </div>

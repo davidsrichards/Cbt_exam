@@ -25,6 +25,10 @@ function AdminNavItmes() {
       </li>
       {/*  */}
       <li className="p-4 w-full  flex items-center justify-between  hover:bg-gray-700 transition duration-300 ease-in-out">
+        <NavLink to={"cmp225-admin-question"}>CMP225</NavLink>
+      </li>
+      {/*  */}
+      <li className="p-4 w-full  flex items-center justify-between  hover:bg-gray-700 transition duration-300 ease-in-out">
         <NavLink to={"gst222-admin-question"}>GST222</NavLink>
       </li>
       {/*  */}

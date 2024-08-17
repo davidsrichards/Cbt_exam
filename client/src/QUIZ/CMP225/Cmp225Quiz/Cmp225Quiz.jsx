@@ -3,17 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import GlobalQuizzes from "../../GLOBAL/GlobalQuizzes/GlobalQuizzes";
 import {
-  cmp223moveToNextQuestionAction,
-  cmp223moveToPreviousQuestionAction,
-} from "../../../REDOX/Features/CMP223/Cmp223QuestionSlice";
-import {
-  cmp223pushAnswerAction,
-  cmp223SelectActions,
-  cmp223UpdatedResultAction,
-} from "../../../REDOX/Features/CMP223/Cmp223ResultSlice";
-import Cmp223Questions from "../Cmp223Questions/Cmp223Questions";
+  cmp225moveToNextQuestionAction,
+  cmp225moveToPreviousQuestionAction,
+} from "../../../REDOX/Features/CMP225/Cmp225QuestionSlice";
 
-function Cmp223Quiz() {
+import Cmp225Questions from "../Cmp225Questions/Cmp225Questions";
+import {
+  cmp225pushAnswerAction,
+  cmp225SelectActions,
+  cmp225UpdatedResultAction,
+} from "../../../REDOX/Features/CMP225/Cmp225ResultSlice";
+
+function Cmp225Quiz() {
   //
   const navigate = useNavigate();
   const location = useLocation();
@@ -23,13 +24,13 @@ function Cmp223Quiz() {
   const dispatch = useDispatch();
 
   // trace
-  const trace = useSelector((state) => state.cmp223question.trace);
+  const trace = useSelector((state) => state.cmp225question.trace);
   // result
-  const { results } = useSelector((state) => state.cmp223Result);
+  const { results } = useSelector((state) => state.cmp225Result);
   // questions
-  const question = useSelector((state) => state.cmp223question.queue);
+  const question = useSelector((state) => state.cmp225question.queue);
   // select
-  const select = useSelector((state) => state.cmp223Result.select);
+  const select = useSelector((state) => state.cmp225Result.select);
   const { timer } = useSelector((state) => state.timerslice);
 
   ////////////////////////////////////////////////////////////////////////
@@ -37,10 +38,11 @@ function Cmp223Quiz() {
   // next
   const handleNextButton = () => {
     if (trace < question.length - 1) {
-      dispatch(cmp223moveToNextQuestionAction());
+      dispatch(cmp225moveToNextQuestionAction());
       if (results.length <= trace) {
         setMoved(true);
-        dispatch(cmp223pushAnswerAction(select));
+
+        dispatch(cmp225pushAnswerAction(select));
       }
     }
   };
@@ -49,7 +51,7 @@ function Cmp223Quiz() {
   const handlePreviousButton = () => {
     if (trace > 0) {
       setMoved(false);
-      dispatch(cmp223moveToPreviousQuestionAction());
+      dispatch(cmp225moveToPreviousQuestionAction());
     }
   };
 
@@ -57,23 +59,20 @@ function Cmp223Quiz() {
 
   const navigateToResult = () => {
     const current = location.pathname;
-    const newPath = current.replace("cmp223", "cmp223-result");
+    const newPath = current.replace("cmp225", "cmp225-result");
     return navigate(newPath, { replace: true, relative: true });
   };
 
   // finish
 
   const handleFinishedButton = () => {
-    dispatch(cmp223pushAnswerAction(select));
+    dispatch(cmp225pushAnswerAction(select));
     navigateToResult();
   };
 
   useEffect(() => {
     if (moved) {
-      console.log(select);
-      console.log(trace);
-      console.log(results);
-      dispatch(cmp223UpdatedResultAction({ trace, select }));
+      dispatch(cmp225UpdatedResultAction({ trace, select }));
     }
   }, [trace, select, moved]);
 
@@ -89,9 +88,9 @@ function Cmp223Quiz() {
     <>
       <GlobalQuizzes
         questions={
-          <Cmp223Questions
-            selected={cmp223SelectActions}
-            updated={cmp223UpdatedResultAction}
+          <Cmp225Questions
+            selected={cmp225SelectActions}
+            updated={cmp225UpdatedResultAction}
             select={select}
           />
         }
@@ -105,4 +104,4 @@ function Cmp223Quiz() {
   );
 }
 
-export default Cmp223Quiz;
+export default Cmp225Quiz;

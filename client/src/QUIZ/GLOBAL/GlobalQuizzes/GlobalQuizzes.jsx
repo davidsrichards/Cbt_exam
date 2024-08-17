@@ -20,7 +20,7 @@ function GlobalQuizzes({
 
   return (
     <>
-      <div className="global-quiz rounded-lg">
+      <div className="global-quiz rounded-lg h-screen">
         <div className="flex items-start gap-4 justify-center flex-col p-6">
           {questions}
           <div className="gap-4 flex justify-between w-full mt-4">
@@ -46,7 +46,7 @@ function GlobalQuizzes({
                 className="bg-gray-500 ring-1 ring-gray-500 hover:bg-transparent w-[9rem] h-12 rounded-lg text-white transition-all duration-500 ease-in-out"
                 onClick={() => handleFinishedButton()}
               >
-                Finished
+                Submit
               </button>
             )}
           </div>
