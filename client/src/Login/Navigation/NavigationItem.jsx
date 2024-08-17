@@ -12,16 +12,20 @@ function NavItems() {
       role="list"
       className="divide-y first:pb-0 last:pb-0 text-[1.4rem] bg-gray-800 text-gray-400 absolute top-20 right-4 border p-6 w-[20rem] rounded-sm"
     >
-      {/*  <li className="p-4 w-full  flex items-center justify-between  hover:bg-gray-700 transition duration-300 ease-in-out">
+      <li className="p-4 w-full  flex items-center justify-between  hover:bg-gray-700 transition duration-300 ease-in-out">
         <Link to={"cmp211-init"}>CMP221</Link>
-      </li> */}
+      </li>
       {/*  */}
-      {/*  <li className="p-4 w-full  flex items-center justify-between  hover:bg-gray-700 transition duration-300 ease-in-out">
+      <li className="p-4 w-full  flex items-center justify-between  hover:bg-gray-700 transition duration-300 ease-in-out">
         <Link to={"cmp222-init"}>CMP222</Link>
-      </li> */}
+      </li>
       {/*  */}
       <li className="p-4 w-full  flex items-center justify-between  hover:bg-gray-700 transition duration-300 ease-in-out">
         <Link to={"cmp223-init"}>CMP223</Link>
+      </li>
+      {/*  */}
+      <li className="p-4 w-full  flex items-center justify-between  hover:bg-gray-700 transition duration-300 ease-in-out">
+        <Link to={"cmp225-init"}>CMP225</Link>
       </li>
       {/*  */}
       <li className="p-4 w-full  flex items-center justify-between  hover:bg-gray-700 transition duration-300 ease-in-out">

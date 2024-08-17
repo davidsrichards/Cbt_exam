@@ -30,12 +30,12 @@ function SideBar({ username }) {
             />
           </li>
           <div className={`${showCourse ? "block" : "hidden"} font-serif`}>
-            {/*  <li>
+            <li>
               <SidebarItems to={"cmp211-init"} value={"CMP 221"} />
-            </li> */}
-            {/* <li>
+            </li>
+            <li>
               <SidebarItems to={"cmp222-init"} value={"CMP 222"} />
-            </li> */}
+            </li>
             <li>
               <SidebarItems to={"cmp223-init"} value={"CMP 223"} />
             </li>
@@ -45,13 +45,6 @@ function SideBar({ username }) {
             <li>
               <SidebarItems to={"gst222-init"} value={"GST 222"} />
             </li>
-
-            {/*  <li>
-              <SidebarItems to={"#"} value={"CMP 224"} />
-            </li>
-            <li>
-              <SidebarItems to={"#"} value={"CMP 225"} />
-            </li> */}
           </div>
           <li className="p-4 hover:bg-gray-700 cursor-pointer  flex items-center justify-between">
             <Link to={"profile"}>Profile</Link>
