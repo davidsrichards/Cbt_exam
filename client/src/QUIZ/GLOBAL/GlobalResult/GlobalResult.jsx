@@ -23,6 +23,8 @@ function GlobalResult({ username, onpoint, totalAttempt, resetAll, to }) {
     return grade;
   };
 
+  const user = useSelector((state) => state.user.googleInformation.username);
+
   return (
     <>
       <div className="flex flex-col items-center justify-center h-screen gap-10 contain-content">
@@ -48,7 +50,7 @@ function GlobalResult({ username, onpoint, totalAttempt, resetAll, to }) {
             {/*  */}
             <tr>
               <td className="border-1 text-left p-5 border-2 border-[#ddd] font-[italic]">
-                {username || "Dauda"}
+                {username || user}
               </td>
               <td
                 className={`border-1 text-left p-5 border-2 border-[#ddd] text-${

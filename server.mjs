@@ -13,7 +13,6 @@ import adminLoginRout from "./AdminLogin/admin-login-endpoint.mjs";
 import MongoStore from "connect-mongo";
 import cookieParser from "cookie-parser";
 import googleRout from "./google-OAUTH/google-user/google-user.mjs";
-import discordRout from "./users/DISCORD/discord-user/discord-user.mjs";
 import cors from "cors";
 import morgan from "morgan";
 import dotenv from "dotenv";
@@ -72,7 +71,6 @@ app.use(loginRout);
 app.use(quizRouts);
 app.use(examRout);
 app.use(googleRout);
-app.use(discordRout);
 app.use(adminRout);
 app.use(adminLoginRout);
 
