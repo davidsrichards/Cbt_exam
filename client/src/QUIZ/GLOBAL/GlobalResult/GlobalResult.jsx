@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { GlobalResetAllActions } from "../ResetAll/ResetAll";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { startTimerAction } from "../../../REDOX/Features/TimerSlice/TimerSlice";
 
-function GlobalResult({ username, onpoint, totalAttempt, resetAll, to }) {
+function GlobalResult({ onpoint, totalAttempt, resetAll, to }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,6 +24,7 @@ function GlobalResult({ username, onpoint, totalAttempt, resetAll, to }) {
   };
 
   const user = useSelector((state) => state.user.googleInformation.username);
+  const { username } = useSelector((state) => state.user);
 
   return (
     <>

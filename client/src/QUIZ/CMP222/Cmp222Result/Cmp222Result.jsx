@@ -49,7 +49,6 @@ function Cmp222Results() {
       <GlobalResult
         onpoint={totalPoints}
         totalAttempt={totalAttempts}
-        username={"Dauda"}
         resetAll={resetAllActions}
         to={"/google/login/success/cmp222"}
       />
