@@ -6,6 +6,7 @@ const TimerSlice = createSlice({
     timer: 900,
     started: false,
     ended: false,
+    opened: false,
   },
   reducers: {
     getTimersAction: (state, action) => {
@@ -21,6 +22,9 @@ const TimerSlice = createSlice({
     endTimerAction: (state, action) => {
       state.ended = false;
     },
+    openQuizAction: (state, action) => {
+      state.opened = action.payload;
+    },
   },
 });
 
@@ -29,5 +33,6 @@ export const {
   startTimerAction,
   endTimerAction,
   resetTimerAction,
+  openQuizAction,
 } = TimerSlice.actions;
 export default TimerSlice.reducer;

@@ -70,9 +70,10 @@ function UserProfile() {
                   id="profile"
                   name="profile"
                   className="hidden"
+                  disabled
                 />
               </label>
-              <h4 className="text-5xl font-bold">{userInfo?.firstname}</h4>
+              <h4 className="text-4xl font-bold py-4">{userInfo?.firstname}</h4>
             </div>
             <form action="" onSubmit={formik.handleSubmit}>
               <div className={`${style.glass} flex flex-col w-full gap-4 p-4`}>

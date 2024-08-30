@@ -12,6 +12,7 @@ import GlobalTimer from "../../QUIZ/GLOBAL/GlobalTimer/GlobalTimer";
 import {
   endTimerAction,
   getTimersAction,
+  openQuizAction,
   resetTimerAction,
   startTimerAction,
 } from "../../REDOX/Features/TimerSlice/TimerSlice";
@@ -45,36 +46,39 @@ function NavigationBar({ username }) {
   const minutes = Math.floor((timer % 900) / 60);
   const seconds = timer % 60;
 
+  // opened
+  const { opened } = useSelector((state) => state.timerslice);
+
   return (
-    <nav className="bg-[#f0f0f0] hover:bg-[#aaa] h-[5rem] fixed w-full left-0 z-10 top-0">
+    <nav className="bg-[#f0f0f0] h-[5rem] fixed w-full left-0 z-10 top-0">
       {started && (
         <div
-          className={`absolute top-6 sm:left-[50%] left-[43%] font-mono font-bold text-[1.2rem] bg-green-500 p-2 rounded-md px-3  ${
-            minutes < 3 ? "text-red-600" : "text-white"
+          className={`absolute top-6 lg:left-[50%] sm:left-[45%] left-[41%] font-mono font-bold text-[1.2rem] bg-[#fff]  p-[8px] rounded-md px-3 time  ${
+            minutes < 3 ? "text-red-600" : "text-[#4e8d71]"
           }`}
         >
           {minutes < 10 ? "0" + minutes : minutes} :{" "}
           {seconds < 10 ? "0" + seconds : seconds}
         </div>
       )}
-      <div className={`lg:hidden block ${!isVisible ? "block " : "hidden "} `}>
+      <div className={`lg:hidden block ${!opened ? "block " : "hidden "} `}>
         <CiMenuBurger
-          className=" group/item absolute top-8 right-14 text-[1.8rem] cursor-pointer "
-          onClick={() => setIsVisible((prev) => !prev)}
+          className=" group/item absolute top-8 right-14 text-[1.8rem] cursor-pointer hover:text-[#2e9265]"
+          onClick={() => dispatch(openQuizAction(!opened))}
         />
-        <div className="">{isVisible && <NavItems />}</div>
+        <div className="">{opened && <NavItems />}</div>
       </div>
       {/*  */}
       <div
         className={` cursor-pointer lg:hidden block    ${
-          isVisible ? "block " : "hidden "
+          opened ? "block " : "hidden "
         } `}
       >
         <LiaTimesSolid
-          className="group/item absolute top-8 right-14 text-[1.8rem] cursor-pointer"
-          onClick={() => setIsVisible((prev) => !prev)}
+          className="group/item absolute top-8 right-14 text-[1.8rem] cursor-pointer hover:text-[#0dff92]"
+          onClick={() => dispatch(openQuizAction(!opened))}
         />
-        <div className="">{isVisible && <NavItems />}</div>
+        <div className="">{opened && <NavItems />}</div>
       </div>
 
       {/* admin name */}
@@ -92,7 +96,7 @@ function NavigationBar({ username }) {
             "https://th.bing.com/th/id/R.b2b34517339101a111716be1c203f354?rik=e5WHTShSpipi3Q&pid=ImgRaw&r=0"
           }
           alt=""
-          className="w-[4rem] h-[4rem] object-cover absolute top-3 left-14 rounded-full cursor-pointer hover:scale-110 lg:hidden block transition-all duration-500 ease-in-out"
+          className="w-[3.5rem] h-[3.5rem] object-cover absolute top-3 left-14 rounded-full cursor-pointer hover:scale-110 lg:hidden block transition-all duration-500 ease-in-out"
         />
       </Link>
       {/*  */}
@@ -103,7 +107,7 @@ function NavigationBar({ username }) {
             "https://th.bing.com/th/id/R.b2b34517339101a111716be1c203f354?rik=e5WHTShSpipi3Q&pid=ImgRaw&r=0"
           }
           alt=""
-          className="w-[4rem] h-[4rem] object-cover  absolute top-3 right-14 lg:block hidden rounded-full cursor-pointer hover:scale-110 transition-all duration-500 ease-in-out"
+          className="w-[3.5rem] h-[3.5rem] object-cover  absolute top-3 right-14 lg:block hidden rounded-full cursor-pointer hover:scale-110 transition-all duration-500 ease-in-out"
         />
       </Link>
     </nav>

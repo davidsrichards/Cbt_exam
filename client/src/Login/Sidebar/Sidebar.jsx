@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaAngleDown } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import SidebarItems from "./SidebarItem";
 
@@ -8,6 +8,7 @@ function SideBar({ username }) {
   const [showCourse, setShowCourse] = useState(false);
   const dispatch = useDispatch();
   const [profileVisible, setProfileVisible] = useState(false);
+
   return (
     <div className="bg-[#2f4050] hover:bg-[#384860] text-white h-screen w-0 lg:h-screen lg:w-64 overflow-auto fixed top-0 left-0 transition-all duration-500 ease-in-out z-50">
       {/* Navigation Header */}

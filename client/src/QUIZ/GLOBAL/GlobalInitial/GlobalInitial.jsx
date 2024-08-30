@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
+  openQuizAction,
   resetTimerAction,
   startTimerAction,
 } from "../../../REDOX/Features/TimerSlice/TimerSlice";
@@ -58,6 +59,7 @@ function GlobalInitial({ length, setter, to, url }) {
     dispatch(gst222resetResultAction());
     dispatch(cmp225ResetAllActions());
     dispatch(cmp225resetResultAction());
+    dispatch(openQuizAction(false));
   }, [dispatch]);
 
   useEffect(() => {
@@ -67,30 +69,33 @@ function GlobalInitial({ length, setter, to, url }) {
   // if loading
 
   if (server.isLoading) return <div>Loading...</div>;
-  if (server.serverError) return <div>Server Error</div>;
+  if (server.serverError)
+    return <div>Hey, there is No Question available...</div>;
 
   return (
     <>
-      <div className="global-initial rounded-lg h-screen">
-        <div className="text-white flex items-center justify-center flex-col gap-12 p-12 rounded-lg">
-          <ul
-            role="list"
-            className="text-[1.1rem] items-center space-y-4 text-center"
-          >
-            <li>you will be given {length?.length} questions</li>
-            <li>and each question contains 4 options</li>
-            <li>you are to click on Submit once done with the quiz</li>
-          </ul>
+      <div className="text-white flex items-center justify-center flex-col gap-12 p-12 rounded-lg  bg-gray-400 bg-opacity-35">
+        <ul
+          role="list"
+          className="text-[1.1rem] items-center space-y-4 text-center text-black rounded-md"
+        >
+          <li className="leading-4">
+            you will be given {length?.length} questions.
+          </li>
+          <li className="leading-4">each question contains 4 options</li>
+          <li className="leading-4">
+            you are to click on Submit once done with the quiz
+          </li>
+        </ul>
 
-          <NavLink to={to} className="font-bold">
-            <button
-              className="bg-blue-400 w-[7rem] h-[3rem] rounded-lg transition delay-75 duration-150 hover:bg-blue-500"
-              onClick={() => dispatch(startTimerAction(true))}
-            >
-              Start Quiz
-            </button>
-          </NavLink>
-        </div>
+        <NavLink to={to} className="font-bold">
+          <button
+            className="bg-blue-400 w-[7rem] h-[3rem] rounded-lg transition delay-75 duration-150 hover:bg-blue-500"
+            onClick={() => dispatch(startTimerAction(true))}
+          >
+            Start Quiz
+          </button>
+        </NavLink>
       </div>
     </>
   );

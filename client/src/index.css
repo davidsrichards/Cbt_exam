@@ -110,4 +110,12 @@ body {
   width: 100%;
 }
 
-/*  */
+/* time  */
+
+.time {
+  box-shadow: 0px 0px 2px 0px;
+}
+
+* {
+  font-family: "lato" serif;
+}

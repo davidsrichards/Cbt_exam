@@ -27,19 +27,19 @@ function GlobalResult({ username, onpoint, totalAttempt, resetAll, to }) {
     <>
       <div className="flex flex-col items-center justify-center h-screen gap-10 contain-content">
         <h1 className="text-[1.5rem] font-bold">Quiz Results</h1>
-        <table className="w-[100%] border-collapse">
+        <table className="border-collapse">
           <thead>
             <tr>
-              <th className="border-1 text-left border-2 p-6 border-[#ddd]bg-[#f2f2f2]">
+              <th className="border-1 text-left border-2 p-5 border-[#ddd] bg-[#f2f2f2]">
                 Name
               </th>
-              <th className="border-1 text-left border-2 p-6 border-[#ddd]bg-[#f2f2f2]">
-                Result
+              <th className="border-1 text-left border-2 p-5 border-[#ddd] bg-[#f2f2f2]">
+                Grade
               </th>
-              <th className="border-1 text-left border-2 p-6 border-[#ddd]bg-[#f2f2f2]">
+              <th className="border-1 text-left border-2 p-5 border-[#ddd] bg-[#f2f2f2] first-line:bg-[#f2f2f2]">
                 Attempts
               </th>
-              <th className="border-1 text-left border-2 p-6 border-[#ddd]bg-[#f2f2f2]">
+              <th className="border-1 text-left border-2 p-5 border-[#ddd] bg-[#f2f2f2]">
                 Points
               </th>
             </tr>
@@ -47,20 +47,20 @@ function GlobalResult({ username, onpoint, totalAttempt, resetAll, to }) {
           <tbody>
             {/*  */}
             <tr>
-              <td className="border-1 text-left p-6 border-2 border-[#ddd]">
+              <td className="border-1 text-left p-5 border-2 border-[#ddd] font-[italic]">
                 {username || "Dauda"}
               </td>
               <td
-                className={`border-1 text-left p-6 border-2 border-[#ddd] text-${
+                className={`border-1 text-left p-5 border-2 border-[#ddd] text-${
                   onpoint <= 40 ? "red-500" : "green-500"
                 }`}
               >
                 {`${achievedGrade(onpoint)}`}
               </td>
-              <td className="border-1 text-left p-6 border-2 border-[#ddd]">
+              <td className="border-1 text-left p-5 border-2 border-[#ddd]">
                 {totalAttempt}
               </td>
-              <td className="border-1 text-left p-6 border-2 border-[#ddd]">
+              <td className="border-1 text-left p-5 border-2 border-[#ddd]">
                 {onpoint}
               </td>
             </tr>

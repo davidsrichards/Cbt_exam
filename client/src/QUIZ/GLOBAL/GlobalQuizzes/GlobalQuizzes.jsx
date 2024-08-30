@@ -26,7 +26,7 @@ function GlobalQuizzes({
           <div className="gap-4 flex justify-between w-full mt-4">
             {trace > 0 && (
               <button
-                className="bg-red-500 ring-1 ring-red-500 hover:text-red-500 hover:bg-transparent w-[9rem] h-12 rounded-lg text-white transition-all duration-500 ease-in-out"
+                className="bg-red-600 ring-1 ring-red-500 hover:text-red-500 hover:bg-transparent w-[8rem] h-10 rounded-lg text-white transition-all duration-500 ease-in-out"
                 onClick={handlePreviousButton}
               >
                 Previous
@@ -35,7 +35,7 @@ function GlobalQuizzes({
             {/*  */}
             {trace < question?.length - 1 && (
               <button
-                className="bg-green-500 ring-1 ring-green-500 hover:text-green-500 hover:bg-transparent w-[9rem] h-12 rounded-lg text-white transition-all duration-500 ease-in-out"
+                className="bg-green-600 ring-1 ring-green-500 hover:text-green-500 hover:bg-transparent w-[8rem] h-10 rounded-lg text-white transition-all duration-500 ease-in-out"
                 onClick={handleNextButton}
               >
                 Next
@@ -43,7 +43,7 @@ function GlobalQuizzes({
             )}
             {trace === question.length - 1 && (
               <button
-                className="bg-gray-500 ring-1 ring-gray-500 hover:bg-transparent w-[9rem] h-12 rounded-lg text-white transition-all duration-500 ease-in-out"
+                className="bg-gray-500 ring-1 ring-gray-500 hover:bg-transparent w-[8rem] h-10 rounded-lg text-white transition-all duration-500 ease-in-out"
                 onClick={() => handleFinishedButton()}
               >
                 Submit
