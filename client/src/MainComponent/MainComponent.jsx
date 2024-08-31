@@ -48,7 +48,14 @@ function MainComponenet() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
-        <Route path="/google/login/success" element={<DashBoard />}>
+        <Route
+          path="/google/login/success"
+          element={
+            <ProtectQuiz>
+              <DashBoard />
+            </ProtectQuiz>
+          }
+        >
           <Route path="quiz" element={<Quiz />} />
           <Route path="result" element={<Result />} />
           <Route path="profile" element={<UserProfile />} />

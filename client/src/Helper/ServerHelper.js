@@ -47,11 +47,10 @@ export async function GenerateOTP({ username }, email) {
       try {
         axios.post(`${BASE_URL}/mail`, {
           name: username,
-          email: email || "tayata9711@daypey.com",
+          email: email,
           intro: "OTP",
-          outro: data,
+          outro: `your OTP is <b>${data}</b>`,
         });
-
         return Promise.resolve({ data, status });
       } catch (error) {
         return Promise.reject(error);

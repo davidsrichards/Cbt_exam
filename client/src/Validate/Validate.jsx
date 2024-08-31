@@ -39,8 +39,7 @@ export const validateUsername = (values) => {
 export const ProtectQuiz = ({ children }) => {
   const user = useSelector((state) => state.user.username);
   const { username } = useSelector((state) => state.user.googleInformation);
-  if (user === "" && username === "")
-    return <Navigate to={"/"} replace={true}></Navigate>;
+  if (!user) return <Navigate to={"/"} replace={true}></Navigate>;
   return children;
 };
 

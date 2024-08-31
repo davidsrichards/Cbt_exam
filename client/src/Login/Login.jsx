@@ -102,7 +102,7 @@ function Login() {
             <input
               {...formik.getFieldProps("username")}
               type="text"
-              className="p-4 text-black bg-neutral-200 font-serif rounded-sm ring-2 ring-white w-full transition delay-100 hover:transition hover:ring-blue-500 outline-none"
+              className="p-3 text-black bg-neutral-200 font-serif rounded-sm ring-2 ring-white w-full transition delay-100 hover:transition hover:ring-blue-500 outline-none"
             />
           </div>
 
@@ -114,7 +114,7 @@ function Login() {
             <input
               {...formik.getFieldProps("password")}
               type="password"
-              className="p-4 text-black bg-slate-200 font-serif rounded-sm ring-2 ring-white w-full transition  delay-100  hover:ring-blue-400 outline-none in"
+              className="p-3 text-black bg-slate-200 font-serif rounded-sm ring-2 ring-white w-full transition  delay-100  hover:ring-blue-400 outline-none in"
             />
           </div>
           {/*  */}

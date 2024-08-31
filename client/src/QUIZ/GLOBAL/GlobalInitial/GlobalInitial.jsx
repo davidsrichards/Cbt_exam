@@ -82,9 +82,9 @@ function GlobalInitial({ length, setter, to, url }) {
           <li className="leading-4">
             you will be given {length?.length} questions.
           </li>
-          <li className="leading-4">each question contains 4 options</li>
+          <li className="leading-4">each question contains 4 options.</li>
           <li className="leading-4">
-            you are to click on Submit once done with the quiz
+            you are to click on Submit if you done with the quiz.
           </li>
         </ul>
 

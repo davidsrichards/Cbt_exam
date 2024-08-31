@@ -48,13 +48,12 @@ function GeenrateOTP() {
   // generate otp
 
   const generateOtp = async () => {
-    let { data, status } = await GenerateOTP({ username }, userInfo?.email);
-    if (status === 201) {
-      toast.success("we have send an OTP to your Email");
-      return data;
-    } else {
-      toast.error("Could not send an OTP...");
-    }
+    let response = GenerateOTP({ username }, userInfo?.email);
+    toast.promise(response, {
+      loading: <div>sending OTP...</div>,
+      success: <div>successfully sent</div>,
+      error: <div>could not sent</div>,
+    });
   };
 
   useEffect(() => {
