@@ -70,9 +70,6 @@ function Cmp223Quiz() {
 
   useEffect(() => {
     if (moved) {
-      console.log(select);
-      console.log(trace);
-      console.log(results);
       dispatch(cmp223UpdatedResultAction({ trace, select }));
     }
   }, [trace, select, moved]);

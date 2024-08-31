@@ -63,8 +63,10 @@ passport.deserializeUser(async (id, done) => {
   ///// find user
   try {
     const findUser = await Google.findById(id);
+    console.log(findUser);
     return findUser ? done(null, findUser) : done(null, null);
   } catch (error) {
+    console.log(error);
     done(error, null);
   }
 });

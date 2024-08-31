@@ -1,6 +1,11 @@
 import generateOtp from "otp-generator";
 import { User } from "../../userSchema/userSchema.mjs";
 import { hashPassword } from "../../HASHING/hashing-password.mjs";
+import nodeMailer from "nodemailer";
+import Mailgen from "mailgen";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 // authenticate user by username
 
@@ -100,4 +105,46 @@ export async function updateUser(req, res) {
   }
 }
 
-// get user
+// send mail
+
+export async function sendEmail(req, res) {
+  const { name, email, intro, outro } = req.body;
+  let config = {
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD,
+    },
+  };
+  let transporter = nodeMailer.createTransport(config);
+  let MailGenerator = new Mailgen({
+    theme: "default",
+    product: {
+      name: "Dash",
+      link: "https://quiz-application-j057.onrender.com",
+    },
+  });
+  let response = {
+    body: {
+      name,
+      intro,
+      outro,
+    },
+  };
+
+  let mail = MailGenerator.generate(response);
+  let message = {
+    from: process.env.EMAIL,
+    to: email,
+    subject: "OTP",
+    html: mail,
+  };
+  transporter
+    .sendMail(message)
+    .then(() => {
+      return res.status(201).json("email sent successful");
+    })
+    .catch((err) => {
+      return res.status(500).json(err);
+    });
+}

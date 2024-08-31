@@ -3,12 +3,14 @@ import toast, { Toaster } from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
-import { GenerateOTP, verifyOTP } from "../../Helper/ServerHelper";
+import { GenerateOTP, sendMail, verifyOTP } from "../../Helper/ServerHelper";
 import { useSelector } from "react-redux";
+import { FetchUserInfo } from "../../QUIZ/DashBoard/FetchUserInfo/FetchUserInfo";
 
 function GeenrateOTP() {
   const navigate = useNavigate();
-
+  const username = useSelector((state) => state.user.username);
+  const [{ userInfo, serverError, isLoading }] = FetchUserInfo(username);
   const [codes, setCode] = useState({
     code1: "",
     code2: "",
@@ -43,14 +45,20 @@ function GeenrateOTP() {
     }
   };
 
-  // GENERATE OTP
-  const username = useSelector((state) => state.user.username);
+  // generate otp
+
+  const generateOtp = async () => {
+    let { data, status } = await GenerateOTP({ username }, userInfo?.email);
+    if (status === 201) {
+      toast.success("we have send an OTP to your Email");
+      return data;
+    } else {
+      toast.error("Could not send an OTP...");
+    }
+  };
+
   useEffect(() => {
-    const generate = async () => {
-      const { data } = await GenerateOTP({ username });
-      alert(`Your OTP is ${data}`);
-    };
-    generate();
+    generateOtp();
   }, [username]);
 
   // verify OTP
@@ -87,12 +95,7 @@ function GeenrateOTP() {
   // RESEND OTP
 
   const resendOTP = async () => {
-    try {
-      const response = await GenerateOTP({ username });
-      alert(`Your OTP is ${response.data}`);
-    } catch (error) {
-      return error;
-    }
+    generateOtp();
   };
 
   return (
@@ -103,9 +106,9 @@ function GeenrateOTP() {
         <div className="flex justify-center items-center h-screen  border-green-500">
           <div className={`${style.textbox} shade border-blue-500 mx-auto`}>
             <div className="title flex flex-col items-center">
-              <h4 className="text-5xl font-bold">GenerateOTP</h4>
+              <h4 className="text-5xl font-bold">Enter OTP</h4>
               <span className="py-4 text-xl w-2/3 text-center text-gray-500">
-                Enter OTP
+                Enter OTP.
               </span>
             </div>
             <form
@@ -114,7 +117,7 @@ function GeenrateOTP() {
               onSubmit={onSubmit}
             >
               <div className={`${style.glass} p-3 border-pink-400`}>
-                <div className="input text-center justify-center flex flex-col w-full pb-6 p-4">
+                <div className="input text-center justify-center flex flex-col w-full pb-6 p-4 ">
                   {" "}
                   <span className="py-4 text-sm text-left text-gray-500">
                     please enter{" "}
@@ -149,7 +152,7 @@ function GeenrateOTP() {
                 </button>
               </div>
             </form>
-            <span className="text-gray-500">
+            <span className="text-gray-500 pb-2">
               Cant get OTP?
               <button className={`${style.btn}`} onClick={resendOTP}>
                 Resend OTP

@@ -2,8 +2,6 @@ import axios from "axios";
 
 const BASE_URL = "/api/user";
 
-// get user
-
 export async function getUser({ username }) {
   try {
     const { data, status } = await axios.get(`${BASE_URL}/get/${username}`);
@@ -37,11 +35,28 @@ export async function UserRegistration(credentials) {
 
 // generate otp
 
-export async function GenerateOTP({ username }) {
+export async function GenerateOTP({ username }, email) {
+  // get user
+
   try {
     const { data, status } = await axios.get(`${BASE_URL}/generateOTP`, {
       params: { username },
     });
+
+    if (status === 201) {
+      try {
+        axios.post(`${BASE_URL}/mail`, {
+          name: username,
+          email: email || "tayata9711@daypey.com",
+          intro: "OTP",
+          outro: data,
+        });
+
+        return Promise.resolve({ data, status });
+      } catch (error) {
+        return Promise.reject(error);
+      }
+    }
     return Promise.resolve({ data, status });
   } catch (error) {
     return Promise.reject(error);
@@ -99,6 +114,18 @@ export async function LoginWithGoogle() {
   try {
     const data = await axios.get(`${BASE_URL}/google/status`);
     return Promise.resolve(data);
+  } catch (error) {
+    return Promise.reject(error);
+  }
+}
+
+// send mail
+
+export async function sendMail(body) {
+  try {
+    const { data, status } = axios.post(`${BASE_URL}/mail`, body);
+    console.log(data, status);
+    return Promise.resolve({ data, status });
   } catch (error) {
     return Promise.reject(error);
   }

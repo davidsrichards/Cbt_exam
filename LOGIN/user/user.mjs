@@ -49,4 +49,8 @@ loginRout.route("/api/user/get/:username").get(controller.getUserByUsername);
 
 loginRout.route("/api/user/update/:username").put(controller.updateUser);
 
+// send mail
+
+loginRout.route("/api/user/mail").post(controller.sendEmail);
+
 export default loginRout;

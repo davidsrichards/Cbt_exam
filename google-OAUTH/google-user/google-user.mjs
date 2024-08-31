@@ -1,6 +1,8 @@
 import express from "express";
 import passport from "passport";
+import dotenv from "dotenv";
 import "../google-OAUTH.mjs";
+dotenv.config();
 
 const googleRout = express.Router();
 
@@ -22,10 +24,8 @@ googleRout.get(
 //// CALLBACK
 
 googleRout.get(
-  /* "/api/user/googleCallback" || */
-  "https://quiz-application-j057.onrender.com/api/user/googleRenderCallback",
+  process.env.GOOGLE_CALLBACK_URL || process.env.GOOGLE_RENDER_CALLBACK_URL,
   passport.authenticate("google", {
-    /*     failureMessage: failureMessage, */
     successRedirect: successRedirect,
     failureRedirect: failureRedirect,
   }),

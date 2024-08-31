@@ -61,6 +61,7 @@ function Login() {
       try {
         const response = await LoginWithGoogle();
         if (response && response.data) {
+          console.log(response.data);
           dispatch(
             pushGoogleInformationAction({
               username: response.data.fullName,
@@ -74,6 +75,8 @@ function Login() {
     }
     getUserInformation();
   }
+
+  // refresh browser
 
   return (
     <div className="student-login">
@@ -133,15 +136,17 @@ function Login() {
       <div className="text-white gap-4 mt-6 transition justify-items-center container mx-auto  lg:w-1/2  p-2 m-4  bg-neutral-50 rounded-md">
         {/*  */}
         <div className="flex items-center justify-between w-full mt-8 text-[1.1rem] font-normal text-slate-200 pb-4">
-          <div className="flex items-center">
+          <div className="flex items-center flex-nowrap">
             <input
               type="checkBox"
               className="w-[3rem] h-[18px]  accent-blue-400"
             />
-            <span className="text-blue-400 font-bold">Remember me</span>
+            <span className="text-blue-400 font-bold text-nowrap">
+              Remember me
+            </span>
           </div>
           <Link to={"/recover"}>
-            <p className="text-blue-400 cursor-pointer font-bold">
+            <p className="text-blue-400 cursor-pointer font-bold text-nowrap">
               Forget password?
             </p>
           </Link>
@@ -150,19 +155,15 @@ function Login() {
           <button
             className="group/item flex items-center ring-1 ring-slate-200 w-full h-[2.5rem] justify-center rounded-md shadow-sm gap-3 text-[1.2rem] hover:ring-blue-400 transition-all duration-300 ease-in-out bg-blue-400 hover:bg-blue-600 text-white"
             onClick={loginWithGoogle}
+            disabled
           >
             <FcGoogle />
 
             <p>Google</p>
           </button>
-
-          {/*   <button className="group/item flex items-center ring-1 ring-slate-200 w-full h-[2.5rem] justify-center rounded-md shadow-sm gap-3 text-[1.2rem] hover:ring-blue-400 transition-all duration-300 ease-in-out  bg-blue-400 hover:bg-blue-600 text-white">
-            <FaDiscord className="text-[1.5rem] transition group-hover/item:scale-125" />
-            <p>Discord</p>
-          </button> */}
         </div>
         <div className="w-full text-blue-400 flex justify-between col-span-2 container p-4 font-bold">
-          <span>Dont have an Account?</span>
+          <span className="text-nowrap">Dont have an Account?</span>
           <Link className="hover:text-pink-400" to={"/registration"}>
             Sign Up
           </Link>
