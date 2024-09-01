@@ -9,6 +9,13 @@ export default {
         "four-colors-hover":
           " linear-gradient(90deg, #F8BBD0 10%, #FFF9C4 25% 25%, #FFB300 75% 80%, #BA68C8)",
       },
+      backgroundColor: {
+        primary: "#214c70",
+        secondary: "#EFEFEF",
+      },
+      colors: {
+        primary: "#214c70",
+      },
     },
   },
   plugins: [],

@@ -10,7 +10,7 @@ function SideBar({ username }) {
   const [profileVisible, setProfileVisible] = useState(false);
 
   return (
-    <div className="bg-[#2f4050] hover:bg-[#384860] text-white h-screen w-0 lg:h-screen lg:w-64 overflow-auto fixed top-0 left-0 transition-all duration-500 ease-in-out z-50">
+    <div className="bg-primary  text-white h-screen w-0 lg:h-screen lg:w-64 overflow-auto fixed top-0 left-0 transition-all duration-500 ease-in-out z-50">
       {/* Navigation Header */}
       <div className="flex items-center justify-between p-4">
         <span className="text-xl font-semibold uppercase flex gap-4">

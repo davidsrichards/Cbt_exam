@@ -45,9 +45,11 @@ function ResetPassword() {
       <div className="container mx-auto shade">
         <Toaster position="center-top" reverseOrder={false}></Toaster>
         <div className="flex justify-center items-center h-screen ">
-          <div className={`${style.textbox} w-[25rem] shade overflow-hidden`}>
+          <div
+            className={`${style.textbox} w-[25rem] shade border-2 border-blue-400 bg-[#fff] p-2`}
+          >
             <div className="title flex flex-col items-center">
-              <h4 className="text-5xl font-bold">Hello {username}</h4>
+              <h4 className="text-3xl font-bold">Hello {username}</h4>
               <span className="py-4 text-xl w-2/3 text-center text-gray-500">
                 Specify New Password
               </span>

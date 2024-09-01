@@ -49,7 +49,7 @@ function UserProfile() {
 
   return (
     <>
-      <div className="container mx-auto shade">
+      <div className="container mx-auto shade bg-[#fff]">
         <Toaster position="center-top" reverseOrder={false}></Toaster>
         <div className="flex justify-center items-center ">
           <div className={`${style.textbox} shade overflow-hidden w-full`}>
@@ -73,7 +73,7 @@ function UserProfile() {
                   disabled
                 />
               </label>
-              <h4 className="text-4xl font-bold py-4">{userInfo?.firstname}</h4>
+              <h4 className="text-3xl font-bold py-4">{userInfo?.firstname}</h4>
             </div>
             <form action="" onSubmit={formik.handleSubmit}>
               <div className={`${style.glass} flex flex-col w-full gap-4 p-4`}>

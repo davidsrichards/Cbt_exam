@@ -49,8 +49,16 @@ function NavigationBar({ username }) {
   // opened
   const { opened } = useSelector((state) => state.timerslice);
 
+  // hide items
+
+  window.addEventListener("dblclick", () => {
+    if (opened) {
+      dispatch(openQuizAction(false));
+    }
+  });
+
   return (
-    <nav className="bg-[#f0f0f0] h-[5rem] fixed w-full left-0 z-10 top-0">
+    <nav className="bg-[#fff] h-[5rem] fixed w-full left-0 z-10 top-0">
       {started && (
         <div
           className={`absolute top-6 lg:left-[50%] sm:left-[45%] left-[41%] font-mono font-bold text-[1.2rem] bg-[#fff]  p-[8px] rounded-md px-3 time  ${

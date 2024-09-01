@@ -11,7 +11,7 @@ function NavItems() {
   return (
     <ul
       role="list"
-      className=" bg-[#206c4a] divide-y first:pb-0 last:pb-0 text-[1.2rem] bg-primary bg-opacity-80 text-white absolute top-20 right-2 border p-6 w-[16rem] rounded-sm"
+      className=" divide-y first:pb-0 last:pb-0 text-[1.2rem] bg-primary bg-opacity-80 text-white absolute top-20 right-2 border p-6 w-[16rem] rounded-sm"
     >
       <li className="p-3 w-full  flex items-center justify-between  hover:bg-gray-700 transition duration-300 ease-in-out">
         <Link to={"cmp211-init"}>CMP221</Link>

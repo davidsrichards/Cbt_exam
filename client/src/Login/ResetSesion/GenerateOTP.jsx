@@ -51,7 +51,7 @@ function GeenrateOTP() {
     let response = GenerateOTP({ username }, userInfo?.email);
     toast.promise(response, {
       loading: <div>sending OTP...</div>,
-      success: <div>successfully sent</div>,
+      success: <div>email sent successfully</div>,
       error: <div>could not sent</div>,
     });
   };
@@ -103,11 +103,13 @@ function GeenrateOTP() {
       <div className="container mx-auto">
         <Toaster position="top-center" reverseOrder={false}></Toaster>
         <div className="flex justify-center items-center h-screen  border-green-500">
-          <div className={`${style.textbox} shade border-blue-500 mx-auto`}>
+          <div
+            className={`${style.textbox} shade border-blue-500 mx-auto border-2 p-2 bg-[#fff]`}
+          >
             <div className="title flex flex-col items-center">
-              <h4 className="text-5xl font-bold">Enter OTP</h4>
+              <h4 className="text-3xl font-bold">Enter OTP</h4>
               <span className="py-4 text-xl w-2/3 text-center text-gray-500">
-                Enter OTP.
+                check you email.
               </span>
             </div>
             <form

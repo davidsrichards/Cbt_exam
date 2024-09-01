@@ -3,7 +3,11 @@ import { useFormik } from "formik";
 import toast, { Toaster } from "react-hot-toast";
 import { UserRegistration } from "../../Helper/ServerHelper";
 import { useNavigate, Link } from "react-router-dom";
+import { IoMdEye } from "react-icons/io";
+import { IoMdEyeOff } from "react-icons/io";
+import { useState } from "react";
 function Registration() {
+  const [isText, setIsText] = useState(false);
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -30,121 +34,144 @@ function Registration() {
   });
   return (
     <>
-      <div>
-        <div className="student-registration">
+      <div className="w-full flex items-center justify-center">
+        <form
+          className="h-screen flex items-center justify-center lg:w-1/2 w-full sm:p-4 p-2"
+          onSubmit={formik.handleSubmit}
+        >
           <Toaster position="top-center" reverseOrder={false}></Toaster>
-          <form
-            action=""
-            className="w-full mt-4"
-            onSubmit={formik.handleSubmit}
-          >
-            <div className="w-full grid grid-cols-1 container mx-auto sm:p-12 p-2 gap-6 justify-items-center">
-              <h1 className="text-blue-400 font-bold text-[2rem]">
-                Registration Form
-              </h1>
-              {/*  */}
-              <div className="w-full space-y-2">
-                <label htmlFor="" className="text-white text-[1.2rem]">
-                  <span className="sm:block hidden"> Name of student</span>{" "}
-                  <span className="sm:hidden block">First Name</span>
-                </label>
-                {/*  */}
-                <div className="w-full grid sm:grid-cols-2 sm:gap-2 gap-4">
-                  {/*  */}
-                  <div>
-                    <input
-                      {...formik.getFieldProps("firstname")}
-                      type="text"
-                      placeholder="First Name"
-                      className="p-2 bg-slate-400 font-serif rounded-sm ring-2 ring-white w-full transition delay-100  hover:ring-blue-400 outline-none"
-                      required
-                    />
-                  </div>
-                  <label
-                    htmlFor=""
-                    className="sm:hidden block text-white  text-[1.2rem]"
-                  >
-                    Last Name
-                  </label>
-
-                  {/*  */}
-
-                  <div>
-                    <input
-                      {...formik.getFieldProps("lastname")}
-                      required
-                      type="text"
-                      placeholder="Last Name"
-                      className="p-2 bg-slate-400 font-serif rounded-sm ring-2 ring-white w-full transition delay-100  hover:ring-blue-400 outline-none"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/*  */}
-
-              <div className="w-full space-y-2">
-                <label htmlFor="" className="text-white text-[1.2rem]">
-                  <span className="sm:block hidden">Password</span>{" "}
-                  <span className="sm:hidden block">Password</span>
-                </label>
-                {/*  */}
-
-                <div className="w-full space-y-3">
-                  <input
-                    {...formik.getFieldProps("password")}
-                    required
-                    type="password"
-                    placeholder="Password"
-                    className="p-2  bg-slate-400 font-serif rounded-sm ring-2 ring-white w-full transition delay-100  hover:ring-blue-400 outline-none"
-                  />
-                </div>
-              </div>
-
-              {/*  */}
-              <div className="w-full space-y-3">
-                <label htmlFor="" className="text-white  text-[1.2rem]">
-                  Email
-                </label>
-                <input
-                  {...formik.getFieldProps("email")}
-                  required
-                  type="email"
-                  className="p-2  bg-slate-400 font-serif rounded-sm ring-2 ring-white w-full transition delay-100  hover:ring-blue-400 outline-none"
-                />
-              </div>
-
-              {/*  */}
-              <div className="w-full space-y-3">
-                <label htmlFor="" className="text-white  text-[1.2rem]">
-                  Phone Number
-                </label>
-                <input
-                  {...formik.getFieldProps("phone")}
-                  required
-                  type="text"
-                  className="p-2  bg-slate-400 font-serif rounded-sm ring-2 ring-white w-full transition delay-100  hover:ring-blue-400 outline-none"
-                />
-              </div>
-              {/*  */}
-              <button
-                type="submit"
-                className=" bg-blue-400 hover:bg-blue-600 w-full p-3 text-[1.3rem] font-bold rounded-lg mt-3 transition-all duration-500 ease-in-out text-white"
-              >
-                Submit
-              </button>
-              <div className="bg-neutral-50 p-4 sm:w-full rounded-md">
-                <div className="w-full text-blue-400 flex justify-between font-bold gap-4">
-                  <span>Already have an Account?</span>
-                  <Link to={"/"}>Sign In</Link>
-                </div>
-              </div>
+          <div className="bg-[#fff] flex flex-col gap-8 p-4 px-12 w-full">
+            <div className="self-center">
+              <span className="key">C</span>&nbsp;{" "}
+              <span className="middle">M</span>
+              &nbsp;
+              <span className="key">P</span>
             </div>
-          </form>
-        </div>
+            <h1 className="sign text-[1.8rem]">Sign Up</h1>
+            <div className="flex flex-col gap-6 border-b-[0.8px] border-slate-400 pb-6">
+              <input
+                {...formik.getFieldProps("firstname")}
+                type="text"
+                className="text-field p-3 outline-none ring-[0.6px] ring-slate-500 rounded-md w-full"
+                placeholder="firstname"
+                required
+              />
+
+              {/*  */}
+              <input
+                {...formik.getFieldProps("lastname")}
+                type="text"
+                className="text-field p-3 outline-none ring-[0.6px] ring-slate-500 rounded-md w-full"
+                placeholder="lastname"
+                required
+              />
+
+              {/*  */}
+              <input
+                {...formik.getFieldProps("email")}
+                type="email"
+                className="text-field p-3 outline-none ring-[0.6px] ring-slate-500 rounded-md w-full"
+                placeholder="email"
+                required
+              />
+
+              {/*  */}
+              <input
+                {...formik.getFieldProps("password")}
+                type="password"
+                className="text-field p-3 outline-none ring-[0.6px] ring-slate-500 rounded-md w-full"
+                placeholder="password"
+                required
+              />
+              {/*  */}
+              <input
+                {...formik.getFieldProps("phone")}
+                type="text"
+                className="text-field p-3 outline-none ring-[0.6px] ring-slate-500 rounded-md w-full"
+                placeholder="phone"
+              />
+              {/* * */}
+              <button className="bg-primary uppercase p-[0.5rem] text-[#fff] rounded-md transition-all duration-300 ease-in-out hover:bg-[#28608d]">
+                Sign Up
+              </button>
+            </div>
+
+            <Link
+              to={"/"}
+              className="uppercase btn underline select-none text-nowrap"
+            >
+              already have an account?
+            </Link>
+          </div>
+        </form>
       </div>
     </>
   );
 }
 
 export default Registration;
+
+/* 
+
+<div className="w-full flex items-center justify-center  bg-secondary">
+<form
+  className="h-screen flex items-center justify-center lg:w-1/2 w-full sm:p-4 p-2"
+  onSubmit={formik.handleSubmit}
+>
+  <Toaster position="top-center" reverseOrder={false}></Toaster>
+  <div className="bg-[#fff] flex flex-col gap-8 p-12 w-full">
+    <div className="self-center">
+      <span className="key">C</span>&nbsp;{" "}
+      <span className="middle">M</span>
+      &nbsp;
+      <span className="key">P</span>
+    </div>
+    <h1 className="sign text-[1.8rem]">Sign In</h1>
+    <div className="flex flex-col gap-6 border-b-[0.8px] border-slate-400 pb-6">
+      <input
+        {...formik.getFieldProps("username")}
+        type="text"
+        className="text-field p-3 outline-none ring-[0.6px] ring-slate-500 rounded-md w-full"
+        placeholder="Email address"
+      />
+      <div className="relative w-full">
+        {!isText && (
+          <IoMdEye
+            className="absolute right-4 top-[1rem] text-[1.3rem]"
+            onClick={() => setIsText(true)}
+          />
+        )}
+        {isText && (
+          <IoMdEyeOff
+            className="absolute right-4 top-[1rem] text-[1.3rem]"
+            onClick={() => setIsText(false)}
+          />
+        )}
+        <input
+          {...formik.getFieldProps("password")}
+          type={isText ? "text" : "password"}
+          className="text-field p-3 outline-none ring-[0.6px] ring-slate-500 rounded-md w-full"
+          placeholder="password"
+        />
+      </div>
+      <button className="bg-primary uppercase p-[0.5rem] text-[#fff] rounded-md transition-all duration-300 ease-in-out hover:bg-[#28608d]">
+        Sign In
+      </button>
+    </div>
+    <div className="flex sm:items-center sm:justify-between sm:flex-row flex-col">
+      <Link
+        to={"/recover"}
+        className="uppercase btn underline select-none text-nowrap"
+      >
+        forget your password?
+      </Link>
+      <Link
+        to={"/registration"}
+        className="uppercase btn underline select-none text-nowrap"
+      >
+        dont have an account?
+      </Link>
+    </div>
+  </div>
+</form>
+</div> */

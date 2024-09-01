@@ -1,5 +1,8 @@
+import "./Login.css";
 import { FcGoogle } from "react-icons/fc";
 import { FaDiscord } from "react-icons/fa";
+import { IoMdEye } from "react-icons/io";
+import { IoMdEyeOff } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
@@ -18,6 +21,7 @@ import SignUpOrSignIn from "../SignUp/SignUpOrSignIn";
 import axios from "axios";
 
 function Login() {
+  const [isText, setIsText] = useState(false);
   const [googleData, setGoogleData] = useState({ username: "", email: "" });
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -79,96 +83,75 @@ function Login() {
   // refresh browser
 
   return (
-    <div className="student-login">
-      <div className="fixed -top-10 right-10">
-        <SignUpOrSignIn question={"Admin"} to={"/admin-login"} />
-      </div>
-      <Toaster position="top-center" reverseOrder={false}></Toaster>
+    <div className="w-full flex items-center justify-center  bg-secondary">
       <form
-        action=""
-        method="POST"
-        className="w-full bg-transparent mt-[7rem]"
+        className="h-screen flex items-center justify-center lg:w-1/2 w-full sm:p-4 p-2"
         onSubmit={formik.handleSubmit}
       >
-        <div className="grid grid-cols-1 transition justify-items-center container mx-auto  lg:w-1/2 lg:p-0 p-4 m-4 w-full">
-          <h1 className="text-[1.4rem] mt-[8rem] font-bold sm:pb-0  pb-6 text-white">
-            Sign In to Your Account
-          </h1>
-
-          <div className="w-full space-y-3">
-            <label htmlFor="" className="text-white  text-[1.2rem]">
-              User Name
-            </label>
+        <Toaster position="top-center" reverseOrder={false}></Toaster>
+        <div className="bg-[#fff] flex flex-col gap-8 p-12 w-full">
+          <div className="self-center">
+            <span className="key">C</span>&nbsp;{" "}
+            <span className="middle">M</span>
+            &nbsp;
+            <span className="key">P</span>
+          </div>
+          <div className="flex items-center justify-between">
+            <h1 className="sign text-[1.8rem]">Sign In</h1>
+            <Link
+              to={"/admin-login"}
+              className="uppercase btn underline select-none text-nowrap"
+            >
+              Admin
+            </Link>
+          </div>
+          <div className="flex flex-col gap-6 border-b-[0.8px] border-slate-400 pb-6">
             <input
               {...formik.getFieldProps("username")}
               type="text"
-              className="p-3 text-black bg-neutral-200 font-serif rounded-sm ring-2 ring-white w-full transition delay-100 hover:transition hover:ring-blue-500 outline-none"
+              className="text-field p-3 outline-none ring-[0.6px] ring-slate-500 rounded-md w-full"
+              placeholder="Email address"
             />
+            <div className="relative w-full">
+              {!isText && (
+                <IoMdEye
+                  className="absolute right-4 top-[1rem] text-[1.3rem]"
+                  onClick={() => setIsText(true)}
+                />
+              )}
+              {isText && (
+                <IoMdEyeOff
+                  className="absolute right-4 top-[1rem] text-[1.3rem]"
+                  onClick={() => setIsText(false)}
+                />
+              )}
+              <input
+                {...formik.getFieldProps("password")}
+                type={isText ? "text" : "password"}
+                className="text-field p-3 outline-none ring-[0.6px] ring-slate-500 rounded-md w-full"
+                placeholder="password"
+              />
+            </div>
+            <button className="bg-primary uppercase p-[0.5rem] text-[#fff] rounded-md transition-all duration-300 ease-in-out hover:bg-[#28608d]">
+              Sign In
+            </button>
           </div>
-
-          {/*  */}
-          <div className="w-full space-y-3">
-            <label htmlFor="" className="text-white  text-[1.2rem]">
-              Password
-            </label>
-            <input
-              {...formik.getFieldProps("password")}
-              type="password"
-              className="p-3 text-black bg-slate-200 font-serif rounded-sm ring-2 ring-white w-full transition  delay-100  hover:ring-blue-400 outline-none in"
-            />
+          <div className="flex sm:items-center sm:justify-between sm:flex-row flex-col">
+            <Link
+              to={"/recover"}
+              className="uppercase btn underline select-none text-nowrap"
+            >
+              forget your password?
+            </Link>
+            <Link
+              to={"/registration"}
+              className="uppercase btn underline select-none text-nowrap"
+            >
+              dont have an account?
+            </Link>
           </div>
-          {/*  */}
-          <button
-            type="submit"
-            className="mt-6 w-full p-3 rounded-sm text-[1.2rem] font-bold bg-blue-400 text-white hover:bg-blue-600 transition-all duration-500 ease-in-out"
-          >
-            Submit
-          </button>
-          {/*  */}
-
-          {/*  */}
-          <div className="flex items-center justify-center text-white w-full mt-6"></div>
         </div>
       </form>
-      {/*  */}
-
-      {/*  */}
-      <div className="text-white gap-4 mt-6 transition justify-items-center container mx-auto  lg:w-1/2  p-2 m-4  bg-neutral-50 rounded-md">
-        {/*  */}
-        <div className="flex items-center justify-between w-full mt-8 text-[1.1rem] font-normal text-slate-200 pb-4">
-          <div className="flex items-center flex-nowrap">
-            <input
-              type="checkBox"
-              className="w-[3rem] h-[18px]  accent-blue-400"
-            />
-            <span className="text-blue-400 font-bold text-nowrap">
-              Remember me
-            </span>
-          </div>
-          <Link to={"/recover"}>
-            <p className="text-blue-400 cursor-pointer font-bold text-nowrap">
-              Forget password?
-            </p>
-          </Link>
-        </div>
-        <div className="grid ">
-          <button
-            className="group/item flex items-center ring-1 ring-slate-200 w-full h-[2.5rem] justify-center rounded-md shadow-sm gap-3 text-[1.2rem] hover:ring-blue-400 transition-all duration-300 ease-in-out bg-blue-400 hover:bg-blue-600 text-white"
-            onClick={loginWithGoogle}
-            disabled
-          >
-            <FcGoogle />
-
-            <p>Google</p>
-          </button>
-        </div>
-        <div className="w-full text-blue-400 flex justify-between col-span-2 container p-4 font-bold">
-          <span className="text-nowrap">Dont have an Account?</span>
-          <Link className="hover:text-pink-400" to={"/registration"}>
-            Sign Up
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }
