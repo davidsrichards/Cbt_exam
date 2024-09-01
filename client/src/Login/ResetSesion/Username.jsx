@@ -31,11 +31,11 @@ function Username() {
   });
   return (
     <>
-      <div className="shade w-full border-4">
+      <div className="shade w-full sm:p-0 p-2 overflow-hidden">
         <Toaster position="center-top" reverseOrder={false}></Toaster>
-        <div className="flex justify-center items-center h-screen p-2">
+        <div className="flex justify-center items-center h-screen p-2 overflow-hidden">
           <div
-            className={`${style.textbox} w-[25rem] shade mx-auto bg-[#fff] p-2 border-2 border-blue-400`}
+            className={`${style.textbox} shade mx-auto bg-[#fff] p-2 border-2`}
           >
             <div className="title flex flex-col items-center">
               <h4 className="text-3xl font-bold">Hello Again</h4>

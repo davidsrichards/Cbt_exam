@@ -97,7 +97,7 @@ function Login() {
             <span className="key">P</span>
           </div>
           <div className="flex items-center justify-between">
-            <h1 className="sign text-[1.8rem]">Sign In</h1>
+            <h1 className=" uppercase btn  select-none text-nowrap">Sign In</h1>
             <Link
               to={"/admin-login"}
               className="uppercase btn underline select-none text-nowrap"
@@ -110,7 +110,7 @@ function Login() {
               {...formik.getFieldProps("username")}
               type="text"
               className="text-field p-3 outline-none ring-[0.6px] ring-slate-500 rounded-md w-full"
-              placeholder="Email address"
+              placeholder="username"
             />
             <div className="relative w-full">
               {!isText && (

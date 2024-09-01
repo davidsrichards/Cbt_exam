@@ -102,19 +102,17 @@ function GeenrateOTP() {
       {" "}
       <div className="container mx-auto">
         <Toaster position="top-center" reverseOrder={false}></Toaster>
-        <div className="flex justify-center items-center h-screen  border-green-500">
-          <div
-            className={`${style.textbox} shade border-blue-500 mx-auto border-2 p-2 bg-[#fff]`}
-          >
+        <div className="flex justify-center items-center h-screen">
+          <div className={`${style.textbox} shade  p-2 bg-[#fff]`}>
             <div className="title flex flex-col items-center">
               <h4 className="text-3xl font-bold">Enter OTP</h4>
-              <span className="py-4 text-xl w-2/3 text-center text-gray-500">
+              <span className="py-4 text-xl  text-center text-gray-500">
                 check you email.
               </span>
             </div>
             <form
               action=""
-              className="pt-10 w-full flex flex-col items-center justify-center"
+              className="w-full flex flex-col items-center justify-center"
               onSubmit={onSubmit}
             >
               <div className={`${style.glass} p-3 border-pink-400`}>
