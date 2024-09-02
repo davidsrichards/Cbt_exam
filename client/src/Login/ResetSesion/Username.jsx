@@ -20,7 +20,6 @@ function Username() {
       let userPromise = getUser(values);
       toast.promise(userPromise, {
         loading: <div>Checking...</div>,
-        success: <div>Successful</div>,
         error: <div>User not found...</div>,
       });
       userPromise.then(() => {

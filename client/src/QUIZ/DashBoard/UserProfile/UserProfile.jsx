@@ -77,17 +77,11 @@ function UserProfile() {
             </div>
             <form action="" onSubmit={formik.handleSubmit}>
               <div className={`${style.glass} flex flex-col w-full gap-4 p-4`}>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid">
                   <input
                     {...formik.getFieldProps("firstname")}
                     type="text"
                     placeholder="username"
-                    className="box p-2"
-                  />
-                  <input
-                    {...formik.getFieldProps("lastname")}
-                    type="text"
-                    placeholder="lastname"
                     className="box p-2"
                   />
                 </div>

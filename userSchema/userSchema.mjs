@@ -9,10 +9,6 @@ const newUser = new mongoose.Schema({
     type: mongoose.Schema.Types.String,
     required: true,
   },
-  lastname: {
-    type: mongoose.Schema.Types.String,
-    required: true,
-  },
   email: {
     type: mongoose.Schema.Types.String,
     required: true,
