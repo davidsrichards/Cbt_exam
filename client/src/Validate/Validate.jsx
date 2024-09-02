@@ -64,3 +64,17 @@ export const validateResetPassword = (values) => {
   const errors = verifyResetPassword({}, values);
   return errors;
 };
+
+// validate user email
+
+const verifyUserEmail = (error = {}, values) => {
+  if (!values.email.includes("@gmail.com")) {
+    error.email = toast.error("Invalid Email address");
+  }
+  return error;
+};
+
+export const validateUserEmail = (values) => {
+  const errors = verifyUserEmail({}, values);
+  return errors;
+};

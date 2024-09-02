@@ -6,6 +6,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
 import { useState } from "react";
+import { validateUserEmail } from "../../Validate/Validate";
 function Registration() {
   const [isText, setIsText] = useState(false);
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ function Registration() {
       password: "",
       phone: "",
     },
+    validate: validateUserEmail,
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (values) => {
@@ -24,7 +26,7 @@ function Registration() {
       toast.promise(registerPromise, {
         loading: <div>Verifying Credentials</div>,
         success: <div>Registration Successful</div>,
-        error: <div>Could not Register</div>,
+        error: <div>email already exist</div>,
       });
 
       registerPromise.then(() => {
@@ -53,18 +55,18 @@ function Registration() {
                 {...formik.getFieldProps("firstname")}
                 type="text"
                 className="text-field p-3 outline-none ring-[0.6px] ring-slate-500 rounded-md w-full"
-                placeholder="firstname"
+                placeholder="username"
                 required
               />
 
               {/*  */}
-              <input
+              {/* <input
                 {...formik.getFieldProps("lastname")}
                 type="text"
                 className="text-field p-3 outline-none ring-[0.6px] ring-slate-500 rounded-md w-full"
                 placeholder="lastname"
                 required
-              />
+              /> */}
 
               {/*  */}
               <input
@@ -78,7 +80,7 @@ function Registration() {
               {/*  */}
               <input
                 {...formik.getFieldProps("password")}
-                type="password"
+                type="text"
                 className="text-field p-3 outline-none ring-[0.6px] ring-slate-500 rounded-md w-full"
                 placeholder="password"
                 required

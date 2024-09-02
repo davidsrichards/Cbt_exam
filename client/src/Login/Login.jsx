@@ -138,16 +138,16 @@ function Login() {
           </div>
           <div className="flex sm:items-center sm:justify-between sm:flex-row flex-col">
             <Link
-              to={"/recover"}
-              className="uppercase btn underline select-none text-nowrap"
-            >
-              forget your password?
-            </Link>
-            <Link
               to={"/registration"}
               className="uppercase btn underline select-none text-nowrap"
             >
               dont have an account?
+            </Link>
+            <Link
+              to={"/recover"}
+              className="uppercase btn underline select-none text-nowrap"
+            >
+              forget your password?
             </Link>
           </div>
         </div>

@@ -57,8 +57,10 @@ function GeenrateOTP() {
   };
 
   useEffect(() => {
-    generateOtp();
-  }, [username]);
+    if (userInfo?.email !== undefined) {
+      generateOtp();
+    }
+  }, [username, userInfo?.email]);
 
   // verify OTP
 
