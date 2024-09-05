@@ -6,6 +6,7 @@ import GlobalQuestions from "../../GLOBAL/GlobalQuestions/GlobalQuestions";
 
 function Cmp222Questions({ updated, selected, select }) {
   const [{ apidata, servererror, isloading }] = cmp222Helperfunction(true);
+
   // questions
   const questions = useSelector(
     (state) => state.cmp222question.queue[state.cmp222question.trace]

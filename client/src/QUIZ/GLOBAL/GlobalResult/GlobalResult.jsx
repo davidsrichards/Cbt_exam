@@ -3,8 +3,9 @@ import { NavLink } from "react-router-dom";
 import { GlobalResetAllActions } from "../ResetAll/ResetAll";
 import { useDispatch, useSelector } from "react-redux";
 import { startTimerAction } from "../../../REDOX/Features/TimerSlice/TimerSlice";
+import GlobalAnwers from "../GlobalAnwers/GlobalAnwers";
 
-function GlobalResult({ onpoint, totalAttempt, resetAll, to }) {
+function GlobalResult({ onpoint, totalAttempt, resetAll, to, apidata, index }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,7 +29,8 @@ function GlobalResult({ onpoint, totalAttempt, resetAll, to }) {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center h-screen gap-10 contain-content">
+      <div className="flex flex-col items-center justify-center  gap-10 contain-content overflow-auto">
+        <GlobalAnwers apidata={apidata} index={index} />
         <h1 className="text-[1.5rem] font-bold">Quiz Results</h1>
         <table className="border-collapse">
           <thead>

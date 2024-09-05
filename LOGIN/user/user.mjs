@@ -18,10 +18,9 @@ loginRout.post("/api/user/login", async (req, res) => {
     });
     if (!findUser || !comparePassword(password, findUser.password))
       return res.status(400).json("Invalid Credentials");
-
-    res.status(200).json(findUser);
+    return res.status(200).json(findUser);
   } catch (error) {
-    return res.status(404).send(error);
+    return res.sendStatus(504);
   }
 });
 

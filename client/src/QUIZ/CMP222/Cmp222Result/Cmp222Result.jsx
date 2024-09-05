@@ -1,6 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-
-import { useEffect } from "react";
 import GlobalResult from "../../GLOBAL/GlobalResult/GlobalResult";
 import {
   checkTotalAttempt,
@@ -9,8 +7,12 @@ import {
 } from "../../GLOBAL/GlobalHelperFunction/GlobalHelperFunction";
 import { cmp222ResetAllActions } from "../../../REDOX/Features/CMP222/Cmp222QuestionsSlice";
 import { cmp222resetResultAction } from "../../../REDOX/Features/CMP222/Cmp222ResultSlice";
+import { cmp222Helperfunction } from "../Cmp222HelperFunction";
+import { useEffect } from "react";
 
 function Cmp222Results() {
+  const [{ apidata, servererror, isloading }] = cmp222Helperfunction(true);
+
   const dispatch = useDispatch();
   const { answers } = useSelector((state) => state.cmp222question);
   const { results } = useSelector((state) => state.cmp222Result);
@@ -51,6 +53,8 @@ function Cmp222Results() {
         totalAttempt={totalAttempts}
         resetAll={resetAllActions}
         to={"/google/login/success/cmp222"}
+        apidata={apidata}
+        index={1}
       />
     </>
   );

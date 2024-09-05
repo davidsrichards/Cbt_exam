@@ -9,8 +9,11 @@ import {
   checkTotalAttempt,
   checkTotalOnpoint,
 } from "../../GLOBAL/GlobalHelperFunction/GlobalHelperFunction";
+import { cmp225Helperfunction } from "../Cmp225HelperFunction";
 
 function Cmp225Results() {
+  const [{ apidata, servererror, isloading }] = cmp225Helperfunction(true);
+
   const dispatch = useDispatch();
   const { answers } = useSelector((state) => state.cmp225question);
   const { results } = useSelector((state) => state.cmp225Result);
@@ -51,6 +54,8 @@ function Cmp225Results() {
         totalAttempt={totalAttempts}
         resetAll={resetAllActions}
         to={"/google/login/success/cmp225"}
+        apidata={apidata}
+        index={1}
       />
     </>
   );

@@ -7,8 +7,11 @@ import {
   checkTotalAttempt,
   checkTotalOnpoint,
 } from "../../GLOBAL/GlobalHelperFunction/GlobalHelperFunction";
+import { cmp223Helperfunction } from "../Cmp223HelperFunction";
 
 function Cmp223Results() {
+  const [{ apidata, servererror, isloading }] = cmp223Helperfunction(true);
+
   const dispatch = useDispatch();
   const { answers } = useSelector((state) => state.cmp223question);
   const { results } = useSelector((state) => state.cmp223Result);
@@ -16,7 +19,6 @@ function Cmp223Results() {
   const totalAttempts = checkTotalAttempt(results);
   // total points
   const totalPoints = checkTotalOnpoint(results, answers, 2);
-
   useEffect(() => {
     const postResults = async () => {
       try {
@@ -50,6 +52,8 @@ function Cmp223Results() {
         totalAttempt={totalAttempts}
         resetAll={resetAllActions}
         to={"/google/login/success/cmp223"}
+        apidata={apidata}
+        index={1}
       />
     </>
   );

@@ -10,8 +10,11 @@ import {
 import { gst222ResetAllActions } from "../../../REDOX/Features/GST222/Gst222QuestionSlice";
 import { gst222resetResultAction } from "../../../REDOX/Features/GST222/Gst222ResultSlice";
 import GlobalResult from "../../GLOBAL/GlobalResult/GlobalResult";
+import { get222Helperfunction } from "../GST222HelperFunction";
 
 function Gst222Results() {
+  const [{ apidata, servererror, isloading }] = get222Helperfunction(true);
+
   const dispatch = useDispatch();
   const { answers } = useSelector((state) => state.gst222question);
   const { results } = useSelector((state) => state.gst222Result);
@@ -52,6 +55,8 @@ function Gst222Results() {
         totalAttempt={totalAttempts}
         resetAll={resetAllActions}
         to={"/google/login/success/gst222"}
+        apidata={apidata}
+        index={1}
       />
     </>
   );

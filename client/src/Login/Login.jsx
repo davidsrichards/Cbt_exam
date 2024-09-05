@@ -42,10 +42,14 @@ function Login() {
         error: <div>Invalid Credentials</div>,
       });
 
-      loginPromise.then(() => {
-        dispatch(addUserName(values.username));
-        return navigate("/google/login/success");
-      });
+      loginPromise
+        .then(() => {
+          dispatch(addUserName(values.username));
+          return navigate("/google/login/success");
+        })
+        .catch(() => {
+          return;
+        });
     },
   });
 
@@ -132,7 +136,10 @@ function Login() {
                 placeholder="password"
               />
             </div>
-            <button className="bg-primary uppercase p-[0.5rem] text-[#fff] rounded-md transition-all duration-300 ease-in-out hover:bg-[#28608d]">
+            <button
+              type="submit"
+              className="bg-primary uppercase p-[0.5rem] text-[#fff] rounded-md transition-all duration-300 ease-in-out hover:bg-[#28608d]"
+            >
               Sign In
             </button>
           </div>
