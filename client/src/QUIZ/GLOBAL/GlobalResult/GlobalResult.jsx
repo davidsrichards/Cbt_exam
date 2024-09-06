@@ -1,12 +1,21 @@
 import { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { GlobalResetAllActions } from "../ResetAll/ResetAll";
 import { useDispatch, useSelector } from "react-redux";
 import { startTimerAction } from "../../../REDOX/Features/TimerSlice/TimerSlice";
 import GlobalAnwers from "../GlobalAnwers/GlobalAnwers";
 
-function GlobalResult({ onpoint, totalAttempt, resetAll, to, apidata, index }) {
+function GlobalResult({
+  onpoint,
+  totalAttempt,
+  resetAll,
+  to,
+  oldPath,
+  newAPath,
+}) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     dispatch(startTimerAction(false));
@@ -27,11 +36,27 @@ function GlobalResult({ onpoint, totalAttempt, resetAll, to, apidata, index }) {
   const user = useSelector((state) => state.user.googleInformation.username);
   const { username } = useSelector((state) => state.user);
 
+  const moveToReviews = () => {
+    const currenPath = location.pathname;
+    const newPath = currenPath.replace(oldPath, newAPath);
+    return navigate(newPath, { replace: true, relative: true });
+  };
+
   return (
     <>
-      <div className="flex flex-col items-center justify-center  gap-10 contain-content overflow-auto">
-        <GlobalAnwers apidata={apidata} index={index} />
+      <div className="flex flex-col items-center justify-center  gap-10 contain-content overflow-auto border-4 relative p-4">
+        <button
+          onClick={moveToReviews}
+          className="absolute top-4 right-4 bg-primary text-white p-2 rounded-md cursor-pointer answer-container"
+        >
+          Review
+        </button>
+        {/*      <GlobalAnwers apidata={apidata} index={index} /> */}
+
         <h1 className="text-[1.5rem] font-bold">Quiz Results</h1>
+        <div className="answer-container p-2 text-nowrap">
+          Congratulation <span>{username}</span>
+        </div>
         <table className="border-collapse">
           <thead>
             <tr>

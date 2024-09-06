@@ -55,8 +55,10 @@ function Gst222Results() {
         totalAttempt={totalAttempts}
         resetAll={resetAllActions}
         to={"/google/login/success/gst222"}
-        apidata={apidata}
-        index={1}
+        /*  apidata={apidata}
+        index={1} */
+        oldPath={"gst222-result"}
+        newAPath={"gst222-review"}
       />
     </>
   );

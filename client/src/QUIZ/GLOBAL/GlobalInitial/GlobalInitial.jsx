@@ -18,7 +18,7 @@ import { gst222ResetAllActions } from "../../../REDOX/Features/GST222/Gst222Ques
 import { cmp225ResetAllActions } from "../../../REDOX/Features/CMP225/Cmp225QuestionSlice";
 import { cmp225resetResultAction } from "../../../REDOX/Features/CMP225/Cmp225ResultSlice";
 
-function GlobalInitial({ length, setter, to, url }) {
+function GlobalInitial({ length, setter, to, url, reviews }) {
   const dispatch = useDispatch();
   const [server, setServer] = useState({
     serverError: false,
@@ -88,14 +88,24 @@ function GlobalInitial({ length, setter, to, url }) {
           </li>
         </ul>
 
-        <NavLink to={to} className="font-bold">
-          <button
-            className="bg-blue-400 w-[7rem] h-[3rem] rounded-lg transition delay-75 duration-150 hover:bg-blue-500"
-            onClick={() => dispatch(startTimerAction(true))}
-          >
-            Start Quiz
-          </button>
-        </NavLink>
+        <div className="flex items-center justify-around  w-full">
+          <NavLink to={to} className="font-bold">
+            <button
+              className="bg-blue-400 w-[7rem] h-[3rem] rounded-lg transition delay-75 duration-150 hover:bg-blue-500"
+              onClick={() => dispatch(startTimerAction(true))}
+            >
+              Start Quiz
+            </button>
+          </NavLink>
+          <NavLink to={reviews} className="font-bold">
+            <button
+              className="bg-blue-400 w-[7rem] h-[3rem] rounded-lg transition delay-75 duration-150 hover:bg-blue-500"
+              /* onClick={() => dispatch(startTimerAction(true))} */
+            >
+              Review
+            </button>
+          </NavLink>
+        </div>
       </div>
     </>
   );

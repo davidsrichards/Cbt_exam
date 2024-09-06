@@ -41,6 +41,12 @@ import Cmp225Initial from "../QUIZ/CMP225/Cmp225Initial/Cmp225Initial";
 import Cmp225Results from "../QUIZ/CMP225/Cmp225Result/Cmp225Result";
 import Cmp225AdminPost from "../QUIZ/ADMIN/ADMINS/CMP225Admin/Cmp225AdminQuestion/Cmp225Adminpost";
 import Cmp225AdminQuestion from "../QUIZ/ADMIN/ADMINS/CMP225Admin/Cmp225Adminpost/Cmp225AdminQuestion";
+import GlobalReviews from "../QUIZ/GLOBAL/GlobalReviews/GlobalReviews";
+import Cmp222Reviews from "../QUIZ/CMP222/Cmp222Reviews/Cmp222Reviews";
+import Cmp223Reviews from "../QUIZ/CMP223/Cmp223Reviews/Cmp223Reviews";
+import Cmp225Reviews from "../QUIZ/CMP225/Cmp225Reviews/Cmp225Reviews";
+import Gst222Reviews from "../QUIZ/GST222/Gst222Reviews/Gst222Reviews";
+import Cmp211Reviews from "../QUIZ/CMP211/Cmp211Reviews/Cmp211Reviews";
 
 function MainComponenet() {
   return (
@@ -62,18 +68,23 @@ function MainComponenet() {
           <Route path="cmp211" element={<Cmp211 />} />
           <Route path="cmp211-init" element={<Cmp211Initial />} />
           <Route path="cmp211-result" element={<Cmp211Results />} />
+          <Route path="cmp211-review" element={<Cmp211Reviews />} />
           <Route path="cmp222" element={<Cmp222 />} />
           <Route path="cmp222-init" element={<Cmp222Initial />} />
           <Route path="cmp222-result" element={<Cmp222Results />} />
+          <Route path="cmp222-review" element={<Cmp222Reviews />} />
           <Route path="cmp223" element={<Cmp223 />} />
           <Route path="cmp223-init" element={<Cmp223Initial />} />
           <Route path="cmp223-result" element={<Cmp223Results />} />
+          <Route path="cmp223-review" element={<Cmp223Reviews />} />
           <Route path="cmp225" element={<Cmp225 />} />
           <Route path="cmp225-init" element={<Cmp225Initial />} />
           <Route path="cmp225-result" element={<Cmp225Results />} />
+          <Route path="cmp225-review" element={<Cmp225Reviews />} />
           <Route path="gst222" element={<Gst222 />} />
           <Route path="gst222-init" element={<Gst222Initial />} />
           <Route path="gst222-result" element={<Gst222Results />} />
+          <Route path="gst222-review" element={<Gst222Reviews />} />
         </Route>
         <Route path="/generate" element={<GenerateOTP />} />
         <Route path="/recover" element={<Username />} />

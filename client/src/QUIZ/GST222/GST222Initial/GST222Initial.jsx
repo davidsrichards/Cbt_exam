@@ -8,6 +8,7 @@ function Gst222Initial() {
     <>
       <GlobalInitial
         to={"/google/login/success/gst222"}
+        reviews={"/google/login/success/gst222-review"}
         url={BASE_URL}
         length={length}
         setter={setLength}

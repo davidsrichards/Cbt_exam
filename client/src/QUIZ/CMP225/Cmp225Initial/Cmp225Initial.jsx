@@ -9,6 +9,7 @@ function Cmp225Initial() {
     <>
       <GlobalInitial
         to={"/google/login/success/cmp225"}
+        reviews={"/google/login/success/cmp225-review"}
         url={BASE_URL}
         length={length}
         setter={setLength}

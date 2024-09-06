@@ -54,8 +54,10 @@ function Cmp225Results() {
         totalAttempt={totalAttempts}
         resetAll={resetAllActions}
         to={"/google/login/success/cmp225"}
-        apidata={apidata}
-        index={1}
+        /*  apidata={apidata}
+        index={1} */
+        oldPath={"cmp225-result"}
+        newAPath={"cmp225-review"}
       />
     </>
   );
