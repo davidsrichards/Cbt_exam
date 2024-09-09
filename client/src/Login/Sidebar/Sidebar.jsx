@@ -3,6 +3,7 @@ import { FaAngleDown } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import SidebarItems from "./SidebarItem";
+import { startAllActions } from "../../QUIZ/GLOBAL/GlobalHelperFunction/GlobalHelperFunction";
 
 function SideBar({ username }) {
   const [showCourse, setShowCourse] = useState(false);
@@ -22,31 +23,16 @@ function SideBar({ username }) {
       <nav className="mt-4">
         <ul>
           <li className="p-4 hover:bg-gray-700 cursor-pointer flex items-center justify-between">
-            <Link to={"institution"}>Select Course</Link>
-            <FaAngleDown
-              className={`${
-                showCourse ? " rotate-180" : " rotate-0"
-              } transition duration-300 ease-in-out`}
-              onClick={() => setShowCourse((prev) => !prev)}
-            />
+            <Link
+              to={"/google/login/success"}
+              onClick={() => {
+                startAllActions(dispatch);
+              }}
+            >
+              Filter
+            </Link>
           </li>
-          <div className={`${showCourse ? "block" : "hidden"} font-serif`}>
-            <li>
-              <SidebarItems to={"cmp211-init"} value={"CMP 221"} />
-            </li>
-            <li>
-              <SidebarItems to={"cmp222-init"} value={"CMP 222"} />
-            </li>
-            <li>
-              <SidebarItems to={"cmp223-init"} value={"CMP 223"} />
-            </li>
-            <li>
-              <SidebarItems to={"cmp225-init"} value={"CMP 225"} />
-            </li>
-            <li>
-              <SidebarItems to={"gst222-init"} value={"GST 222"} />
-            </li>
-          </div>
+
           <li className="p-4 hover:bg-gray-700 cursor-pointer  flex items-center justify-between">
             <Link to={"profile"}>Profile</Link>
             <FaAngleDown

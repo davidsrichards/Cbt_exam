@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const TimerSlice = createSlice({
   name: "time",
   initialState: {
-    timer: 900,
+    timer: 1800,
     started: false,
     ended: false,
     opened: false,
@@ -14,7 +14,7 @@ const TimerSlice = createSlice({
     },
 
     resetTimerAction: (state, action) => {
-      state.timer = 900;
+      state.timer = 1800;
     },
     startTimerAction: (state, action) => {
       state.started = action.payload;

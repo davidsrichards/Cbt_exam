@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { cmp211helperfunction } from "../../CMP211/Cmp211HelperFunction/Cmp211HelperFunction";
-import "./GlobalReviews.css";
-import { cmp222Helperfunction } from "../../CMP222/Cmp222HelperFunction";
 import { useSelector } from "react-redux";
 import { IoMdCheckmark } from "react-icons/io";
+import { cmp222Helperfunction } from "../../CMP222/Cmp222HelperFunction";
 import { LiaTimesSolid } from "react-icons/lia";
 
-function GlobalReviews({ questions, answers, results }) {
+function GlobalResultReviews() {
+  const [{ apidata, servererror, isloading }] = cmp222Helperfunction(true);
+  const questions = useSelector((state) => state.cmp222question.queue);
+  const { answers } = useSelector((state) => state.cmp222question);
+  const { results } = useSelector((state) => state.cmp222Result);
   //
   const convertToAlphabet = (index) => {
     let display = "";
@@ -27,34 +29,32 @@ function GlobalReviews({ questions, answers, results }) {
     return display;
   };
 
-  const { showError } = useSelector((state) => state.globalslice);
+  useEffect(() => {
+    console.log(results);
+  });
 
   return (
-    <div className="flex absolute top-0  w-full">
-      <div className="flex flex-col justify-center grow w-full">
+    <div className="flex absolute top-0">
+      <div className="flex flex-col justify-center">
         <div className="">
           {questions?.length < 1 && (
-            <div className=" fixed top-[50%] lg:left-[50%] left-[45%] text-[#fff]">
-              Loading...
-            </div>
+            <div className=" fixed top-[50%] left-[50%]">Loading...</div>
           )}
 
           {questions?.map((q, i) => (
-            <div key={i} className="ring-1 ring-slate-700 p-4 bg-white w-full">
-              <div className="font-semibold flex">
-                <span>{i + 1}</span>.&nbsp;{q.question}
+            <div key={i} className="border-2 p-4 bg-white w-full">
+              <div className="font-semibold">
+                {i + 1}.&nbsp;{q.question}
               </div>
               {q?.options?.map((op, index) => (
-                <div key={index} className="flex gap-8">
+                <div key={index} className="flex items-center gap-8">
                   <span className="">{convertToAlphabet(index)}.</span>
                   <span className="flex items-center justify-between gap-4">
                     <span className="flex items-center justify-center gap-2">
                       <span
                         className={`${
-                          index === answers[i] ? "text-green-400" : ""
+                          index === answers[i] && "text-green-400"
                         } ${
-                          showError &&
-                          results &&
                           index !== answers[i] &&
                           index === results[i] &&
                           "text-red-400"
@@ -62,10 +62,9 @@ function GlobalReviews({ questions, answers, results }) {
                       >
                         {op}
                       </span>{" "}
-                      {showError &&
-                        results &&
-                        index !== answers[i] &&
-                        index === results[i] && <LiaTimesSolid />}
+                      {index !== answers[i] && index === results[i] && (
+                        <LiaTimesSolid />
+                      )}
                       {index === answers[i] && <IoMdCheckmark />}
                     </span>
                   </span>
@@ -79,4 +78,4 @@ function GlobalReviews({ questions, answers, results }) {
   );
 }
 
-export default GlobalReviews;
+export default GlobalResultReviews;

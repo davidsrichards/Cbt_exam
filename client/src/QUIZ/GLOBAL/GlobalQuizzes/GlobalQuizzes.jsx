@@ -20,7 +20,7 @@ function GlobalQuizzes({
 
   return (
     <>
-      <div className="global-quiz rounded-lg h-screen">
+      <div className="global-quiz rounded-lg  bg-gray-500 bg-opacity-50 w-full">
         <div className="flex items-start gap-4 justify-center flex-col p-6">
           {questions}
           <div className="gap-4 flex justify-between w-full mt-4">

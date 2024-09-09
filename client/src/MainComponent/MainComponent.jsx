@@ -41,12 +41,12 @@ import Cmp225Initial from "../QUIZ/CMP225/Cmp225Initial/Cmp225Initial";
 import Cmp225Results from "../QUIZ/CMP225/Cmp225Result/Cmp225Result";
 import Cmp225AdminPost from "../QUIZ/ADMIN/ADMINS/CMP225Admin/Cmp225AdminQuestion/Cmp225Adminpost";
 import Cmp225AdminQuestion from "../QUIZ/ADMIN/ADMINS/CMP225Admin/Cmp225Adminpost/Cmp225AdminQuestion";
-import GlobalReviews from "../QUIZ/GLOBAL/GlobalReviews/GlobalReviews";
 import Cmp222Reviews from "../QUIZ/CMP222/Cmp222Reviews/Cmp222Reviews";
 import Cmp223Reviews from "../QUIZ/CMP223/Cmp223Reviews/Cmp223Reviews";
 import Cmp225Reviews from "../QUIZ/CMP225/Cmp225Reviews/Cmp225Reviews";
 import Gst222Reviews from "../QUIZ/GST222/Gst222Reviews/Gst222Reviews";
 import Cmp211Reviews from "../QUIZ/CMP211/Cmp211Reviews/Cmp211Reviews";
+import SelectCourses from "../SelectCourses/SelectCourses";
 
 function MainComponenet() {
   return (
@@ -85,6 +85,7 @@ function MainComponenet() {
           <Route path="gst222-init" element={<Gst222Initial />} />
           <Route path="gst222-result" element={<Gst222Results />} />
           <Route path="gst222-review" element={<Gst222Reviews />} />
+          <Route index element={<SelectCourses />} />
         </Route>
         <Route path="/generate" element={<GenerateOTP />} />
         <Route path="/recover" element={<Username />} />
@@ -112,6 +113,11 @@ function MainComponenet() {
             path="gst222-admin-question"
             element={<Gst222AdminQuestion />}
           />
+          <Route
+            path="gst222-admin-question"
+            element={<Gst222AdminQuestion />}
+          />
+          <Route path="gst222-admin-post" element={<Gst222AdminPost />} />
           <Route path="cmp225-admin-post" element={<Cmp225AdminPost />} />
           <Route
             path="cmp225-admin-question"

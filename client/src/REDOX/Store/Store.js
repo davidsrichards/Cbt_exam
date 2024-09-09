@@ -16,6 +16,7 @@ import Cmp225QuestionSlice from "../Features/CMP225/Cmp225QuestionSlice";
 import Cmp225ResultSlice from "../Features/CMP225/Cmp225ResultSlice";
 import Cmp223QuestionSlice from "../Features/CMP223/Cmp223QuestionSlice";
 import Cmp223ResultSlice from "../Features/CMP223/Cmp223ResultSlice";
+import GlobalSlice from "../Features/GlobalSlice/GlobalSlice";
 
 const persistConfig = {
   version: 1,
@@ -39,6 +40,7 @@ const rootReducer = combineReducers({
   gst222Result: Gst222ResultSlice,
   gst222question: Gst222QuestionSlice,
   timerslice: TimerSlice,
+  globalslice: GlobalSlice,
 });
 
 // persisted

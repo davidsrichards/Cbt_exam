@@ -43,7 +43,7 @@ function NavigationBar({ username }) {
     }
   }, [timer]);
 
-  const minutes = Math.floor((timer % 900) / 60);
+  const minutes = Math.floor((timer % 1800) / 60);
   const seconds = timer % 60;
 
   // opened
@@ -58,7 +58,7 @@ function NavigationBar({ username }) {
   });
 
   return (
-    <nav className="bg-[#fff] h-[5rem] fixed w-full left-0 z-10 top-0">
+    <nav className="bg-[#fff] h-[5rem] fixed w-full left-0 z-10 top-0 nav-b">
       {started && (
         <div
           className={`absolute top-6 lg:left-[50%] sm:left-[45%] left-[41%] font-mono font-bold text-[1.2rem] bg-[#fff]  p-[8px] rounded-md px-3 time  ${

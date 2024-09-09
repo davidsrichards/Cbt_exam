@@ -18,10 +18,14 @@ function GlobalQuestions({
   return (
     <>
       {!questions && (
-        <div className="fixed top-[50%] left-[50%]">Loading...</div>
+        <div className="fixed top-[50%] lg:left-[50%] left-[45%]">
+          Loading...
+        </div>
       )}
       <div className="questions w-full">
-        <h2 className="text-light">{questions?.question}</h2>
+        <h2 className="text-light">
+          {trace + 1}. &nbsp; {questions?.question}
+        </h2>
         <ul key={trace} className="">
           {questions?.options.map((q, i) => (
             <li key={i} className="sm:pb-0 pb-2 sm:h-[100px] h-[125px]">

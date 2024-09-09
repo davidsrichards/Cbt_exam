@@ -7,10 +7,15 @@ function Cmp223Reviews() {
   const questions = useSelector((state) => state.cmp223question.queue);
   // trace
   const { answers } = useSelector((state) => state.cmp223question);
+  const { results } = useSelector((state) => state.cmp223Result);
   // result
   return (
     <div className="relative w-full sm:-mt-[30rem] -mt-[45rem]">
-      <GlobalReviews questions={questions} answers={answers} />
+      <GlobalReviews
+        questions={questions}
+        answers={answers}
+        results={results}
+      />
     </div>
   );
 }

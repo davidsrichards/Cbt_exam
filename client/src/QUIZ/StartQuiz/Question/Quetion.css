@@ -46,10 +46,11 @@ html {
   z-index: 9;
   cursor: pointer;
   -webkit-transition: all 0.25s linear;
+  @apply text-white;
 }
 
 .questions li:hover label {
-  color: #ffffff;
+  @apply text-green-400;
 }
 
 .questions li .check {

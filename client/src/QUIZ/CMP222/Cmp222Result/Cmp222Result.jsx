@@ -12,11 +12,10 @@ import { useEffect } from "react";
 
 function Cmp222Results() {
   const [{ apidata, servererror, isloading }] = cmp222Helperfunction(true);
+  const { results } = useSelector((state) => state.cmp222Result);
 
   const dispatch = useDispatch();
   const { answers } = useSelector((state) => state.cmp222question);
-  const { results } = useSelector((state) => state.cmp222Result);
-  // total attempts
   const totalAttempts = checkTotalAttempt(results);
   // total points
   const totalPoints = checkTotalOnpoint(results, answers, 2);
@@ -53,8 +52,6 @@ function Cmp222Results() {
         totalAttempt={totalAttempts}
         resetAll={resetAllActions}
         to={"/google/login/success/cmp222"}
-        /*  apidata={apidata}
-        index={1} */
         oldPath={"cmp222-result"}
         newAPath={"cmp222-review"}
       />
