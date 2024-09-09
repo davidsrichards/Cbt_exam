@@ -22,7 +22,7 @@ function Cmp211Results() {
   // total points
   const totalPoints = checkTotalOnpoint(results, answers, 1.5);
 
-  useSelector(() => {
+  useEffect(() => {
     const postResults = async () => {
       try {
         const reponse = await GlobalResultHelperFunction(
@@ -39,7 +39,7 @@ function Cmp211Results() {
       }
     };
     postResults();
-  });
+  }, []);
 
   // reset all
 

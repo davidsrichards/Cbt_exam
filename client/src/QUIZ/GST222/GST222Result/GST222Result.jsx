@@ -23,7 +23,7 @@ function Gst222Results() {
   // total points
   const totalPoints = checkTotalOnpoint(results, answers, 2);
 
-  useSelector(() => {
+  useEffect(() => {
     const postResults = async () => {
       try {
         const reponse = await GlobalResultHelperFunction(
@@ -40,7 +40,7 @@ function Gst222Results() {
       }
     };
     postResults();
-  });
+  }, []);
 
   // reset all
 

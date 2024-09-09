@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import {
   checkTotalAttempt,
   checkTotalOnpoint,
+  GlobalResultHelperFunction,
 } from "../../GLOBAL/GlobalHelperFunction/GlobalHelperFunction";
 import { cmp223Helperfunction } from "../Cmp223HelperFunction";
 
@@ -36,7 +37,7 @@ function Cmp223Results() {
       }
     };
     postResults();
-  });
+  }, []);
 
   // reset all
 

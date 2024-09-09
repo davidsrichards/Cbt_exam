@@ -17,6 +17,18 @@ import Cmp225ResultSlice from "../Features/CMP225/Cmp225ResultSlice";
 import Cmp223QuestionSlice from "../Features/CMP223/Cmp223QuestionSlice";
 import Cmp223ResultSlice from "../Features/CMP223/Cmp223ResultSlice";
 import GlobalSlice from "../Features/GlobalSlice/GlobalSlice";
+import Gst111QuestionsSlice from "../Features/LEVEL100/GST111/Gst111QuestionsSlice";
+import Gst111ResultSlice from "../Features/LEVEL100/GST111/Gst111ResultSlice";
+import Cmp224ResultSlice from "../Features/CMP224/Cmp224ResultSlice";
+import Cmp224QuestionSlice from "../Features/CMP224/Cmp224QuestionSlice";
+import Gst112QuestionsSlice from "../Features/LEVEL100/GST112/Gst112QuestionsSlice";
+import Gst112ResultSlice from "../Features/LEVEL100/GST112/Gst112ResultSlice";
+import Gst113QuestionsSlice from "../Features/LEVEL100/GST113/Gst113QuestionsSlice";
+import Gst113ResultSlice from "../Features/LEVEL100/GST113/Gst113ResultSlice";
+import Gst121QuestionsSlice from "../Features/LEVEL100/GST121/Gst121QuestionsSlice";
+import Gst121ResultSlice from "../Features/LEVEL100/GST121/Gst121ResultSlice";
+import Esp221ResultSlice from "../Features/Level200/ESP221/Esp221ResultSlice";
+import Esp221QuestionsSlice from "../Features/Level200/ESP221/Esp221QuestionsSlice";
 
 const persistConfig = {
   version: 1,
@@ -39,6 +51,18 @@ const rootReducer = combineReducers({
   cmp225Result: Cmp225ResultSlice,
   gst222Result: Gst222ResultSlice,
   gst222question: Gst222QuestionSlice,
+  esp221Result: Esp221ResultSlice,
+  esp221question: Esp221QuestionsSlice,
+  gst111question: Gst111QuestionsSlice,
+  gst111Result: Gst111ResultSlice,
+  gst112question: Gst112QuestionsSlice,
+  gst112Result: Gst112ResultSlice,
+  gst113question: Gst113QuestionsSlice,
+  gst113Result: Gst113ResultSlice,
+  gst121question: Gst121QuestionsSlice,
+  gst121Result: Gst121ResultSlice,
+  cmp224Result: Cmp224ResultSlice,
+  cmp224question: Cmp224QuestionSlice,
   timerslice: TimerSlice,
   globalslice: GlobalSlice,
 });

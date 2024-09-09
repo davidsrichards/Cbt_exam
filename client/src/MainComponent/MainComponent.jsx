@@ -47,6 +47,30 @@ import Cmp225Reviews from "../QUIZ/CMP225/Cmp225Reviews/Cmp225Reviews";
 import Gst222Reviews from "../QUIZ/GST222/Gst222Reviews/Gst222Reviews";
 import Cmp211Reviews from "../QUIZ/CMP211/Cmp211Reviews/Cmp211Reviews";
 import SelectCourses from "../SelectCourses/SelectCourses";
+import Cmp224 from "../QUIZ/CMP224/Cmp224";
+import Cmp224Initial from "../QUIZ/CMP224/Cmp224Initial/Cmp224Initial";
+import Cmp224Results from "../QUIZ/CMP224/Cmp224Result/Cmp224Result";
+import Cmp224Reviews from "../QUIZ/CMP224/Cmp224Reviews/Cmp224Reviews";
+import Gst111Initial from "../QUIZ/LEVEL100/GST111/Gst111Initial/Gst111Initial";
+import Gst111Results from "../QUIZ/LEVEL100/GST111/Gst111Result/Gst111Result";
+import Gst111Reviews from "../QUIZ/LEVEL100/GST111/Gst111Reviews/Gst111Reviews";
+import Gst111 from "../QUIZ/LEVEL100/GST111/Gst111";
+import Gst112 from "../QUIZ/LEVEL100/GST112/Gst112";
+import Gst112Initial from "../QUIZ/LEVEL100/GST112/Gst112Initial/Gst112Initial";
+import Gst112Results from "../QUIZ/LEVEL100/GST112/Gst112Result/Gst112Result";
+import Gst112Reviews from "../QUIZ/LEVEL100/GST112/Gst112Reviews/Gst112Reviews";
+import Gst113 from "../QUIZ/LEVEL100/GST113/Gst113";
+import Gst113Initial from "../QUIZ/LEVEL100/GST113/Gst113Initial/Gst113Initial";
+import Gst113Results from "../QUIZ/LEVEL100/GST113/Gst113Result/Gst113Result";
+import Gst113Reviews from "../QUIZ/LEVEL100/GST113/Gst113Reviews/Gst113Reviews";
+import Gst121 from "../QUIZ/LEVEL100/GST121/Gst113";
+import Gst121Initial from "../QUIZ/LEVEL100/GST121/Gst121Initial/Gst121Initial";
+import Gst121Results from "../QUIZ/LEVEL100/GST121/Gst121Result/Gst121Result";
+import Gst121Reviews from "../QUIZ/LEVEL100/GST121/Gst121Reviews/Gst121Reviews";
+import Esp221 from "../QUIZ/ESP221/Esp221";
+import Esp221Initial from "../QUIZ/ESP221/Esp221Initial/Esp221Initial";
+import Esp221Results from "../QUIZ/ESP221/Esp221Result/Esp221Result";
+import Esp221Reviews from "../QUIZ/ESP221/Gst121Reviews/Esp221Reviews";
 
 function MainComponenet() {
   return (
@@ -77,6 +101,11 @@ function MainComponenet() {
           <Route path="cmp223-init" element={<Cmp223Initial />} />
           <Route path="cmp223-result" element={<Cmp223Results />} />
           <Route path="cmp223-review" element={<Cmp223Reviews />} />
+
+          <Route path="cmp224" element={<Cmp224 />} />
+          <Route path="cmp224-init" element={<Cmp224Initial />} />
+          <Route path="cmp224-result" element={<Cmp224Results />} />
+          <Route path="cmp224-review" element={<Cmp224Reviews />} />
           <Route path="cmp225" element={<Cmp225 />} />
           <Route path="cmp225-init" element={<Cmp225Initial />} />
           <Route path="cmp225-result" element={<Cmp225Results />} />
@@ -85,6 +114,29 @@ function MainComponenet() {
           <Route path="gst222-init" element={<Gst222Initial />} />
           <Route path="gst222-result" element={<Gst222Results />} />
           <Route path="gst222-review" element={<Gst222Reviews />} />
+          {/*  */}
+          <Route path="esp221" element={<Esp221 />} />
+          <Route path="esp221-init" element={<Esp221Initial />} />
+          <Route path="esp221-result" element={<Esp221Results />} />
+          <Route path="esp221-review" element={<Esp221Reviews />} />
+          <Route path="gst111" element={<Gst111 />} />
+          <Route path="gst111-init" element={<Gst111Initial />} />
+          <Route path="gst111-result" element={<Gst111Results />} />
+          <Route path="gst111-review" element={<Gst111Reviews />} />
+          <Route path="gst112" element={<Gst112 />} />
+          <Route path="gst112-init" element={<Gst112Initial />} />
+          <Route path="gst112-result" element={<Gst112Results />} />
+          <Route path="gst112-review" element={<Gst112Reviews />} />
+          {/*  */}
+          <Route path="gst113" element={<Gst113 />} />
+          <Route path="gst113-init" element={<Gst113Initial />} />
+          <Route path="gst113-result" element={<Gst113Results />} />
+          <Route path="gst113-review" element={<Gst113Reviews />} />
+          {/*  */}
+          <Route path="gst121" element={<Gst121 />} />
+          <Route path="gst121-init" element={<Gst121Initial />} />
+          <Route path="gst121-result" element={<Gst121Results />} />
+          <Route path="gst121-review" element={<Gst121Reviews />} />
           <Route index element={<SelectCourses />} />
         </Route>
         <Route path="/generate" element={<GenerateOTP />} />

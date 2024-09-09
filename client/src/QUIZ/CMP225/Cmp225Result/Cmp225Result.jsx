@@ -8,6 +8,7 @@ import { cmp225resetResultAction } from "../../../REDOX/Features/CMP225/Cmp225Re
 import {
   checkTotalAttempt,
   checkTotalOnpoint,
+  GlobalResultHelperFunction,
 } from "../../GLOBAL/GlobalHelperFunction/GlobalHelperFunction";
 import { cmp225Helperfunction } from "../Cmp225HelperFunction";
 
@@ -22,7 +23,7 @@ function Cmp225Results() {
   // total points
   const totalPoints = checkTotalOnpoint(results, answers, 2);
 
-  useSelector(() => {
+  useEffect(() => {
     const postResults = async () => {
       try {
         const reponse = await GlobalResultHelperFunction(
@@ -39,7 +40,7 @@ function Cmp225Results() {
       }
     };
     postResults();
-  });
+  }, []);
 
   // reset all
 
