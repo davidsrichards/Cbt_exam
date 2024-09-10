@@ -71,6 +71,18 @@ import Esp221 from "../QUIZ/ESP221/Esp221";
 import Esp221Initial from "../QUIZ/ESP221/Esp221Initial/Esp221Initial";
 import Esp221Results from "../QUIZ/ESP221/Esp221Result/Esp221Result";
 import Esp221Reviews from "../QUIZ/ESP221/Gst121Reviews/Esp221Reviews";
+import Gst111AdminPost from "../QUIZ/ADMIN/ADMINS/Level100Admin/Gst111Admin/Gst111Adminpost/Gst111AdminQuestion/Gst111Adminpost";
+import Gst111AdminQuestion from "../QUIZ/ADMIN/ADMINS/Level100Admin/Gst111Admin/Gst111AdminQuestion/Gst111AdminQuestion";
+import Gst112AdminPost from "../QUIZ/ADMIN/ADMINS/Level100Admin/Gst112Admin/Gst111Adminpost/Gst112AdminQuestion/Gst112Adminpost";
+import Gst112AdminQuestion from "../QUIZ/ADMIN/ADMINS/Level100Admin/Gst112Admin/Gst112AdminQuestion/Gst112AdminQuestion";
+import Gst113AdminPost from "../QUIZ/ADMIN/ADMINS/Level100Admin/Gst113Admin/Gst111Adminpost/Gst113AdminQuestion/Gst113Adminpost";
+import Gst113AdminQuestion from "../QUIZ/ADMIN/ADMINS/Level100Admin/Gst113Admin/Gst113AdminQuestion/Gst113AdminQuestion";
+import Gst121AdminPost from "../QUIZ/ADMIN/ADMINS/Level100Admin/Gst121Admin/Gst121Adminpost/Gst113AdminQuestion/Gst121Adminpost";
+import Gst121AdminQuestion from "../QUIZ/ADMIN/ADMINS/Level100Admin/Gst121Admin/Gst121AdminQuestion/Gst121AdminQuestion";
+import Esp221AdminQuestion from "../QUIZ/ADMIN/ADMINS/Level200Admin/ESP221/Esp221AdminQuestion/Esp221AdminQuestion";
+import Esp221AdminPost from "../QUIZ/ADMIN/ADMINS/Level200Admin/ESP221/Esp221Adminpost/Esp221AdminQuestion/Esp221Adminpost";
+import Cmp224AdminQuestion from "../QUIZ/ADMIN/ADMINS/Level200Admin/CMP224/224AdminQuestion/Cmp224AdminQuestion";
+import Cmp224AdminPost from "../QUIZ/ADMIN/ADMINS/Level200Admin/CMP224/Cmp224Adminpost/Esp221AdminQuestion/Cmp224Adminpost";
 
 function MainComponenet() {
   return (
@@ -162,18 +174,46 @@ function MainComponenet() {
           />
           <Route path="cmp223-admin-post" element={<Cmp223AdminPost />} />
           <Route
-            path="gst222-admin-question"
-            element={<Gst222AdminQuestion />}
+            path="cmp224-admin-question"
+            element={<Cmp224AdminQuestion />}
           />
+          <Route path="cmp224-admin-post" element={<Cmp224AdminPost />} />
           <Route
             path="gst222-admin-question"
             element={<Gst222AdminQuestion />}
           />
           <Route path="gst222-admin-post" element={<Gst222AdminPost />} />
+          <Route
+            path="esp221-admin-question"
+            element={<Esp221AdminQuestion />}
+          />
+          <Route path="esp221-admin-post" element={<Esp221AdminPost />} />
           <Route path="cmp225-admin-post" element={<Cmp225AdminPost />} />
           <Route
             path="cmp225-admin-question"
             element={<Cmp225AdminQuestion />}
+          />
+          {/*  */}
+          <Route path="gst111-admin-post" element={<Gst111AdminPost />} />
+          <Route
+            path="gst111-admin-question"
+            element={<Gst111AdminQuestion />}
+          />
+          <Route path="gst112-admin-post" element={<Gst112AdminPost />} />
+          <Route
+            path="gst112-admin-question"
+            element={<Gst112AdminQuestion />}
+          />
+          <Route path="gst113-admin-post" element={<Gst113AdminPost />} />
+          <Route
+            path="gst113-admin-question"
+            element={<Gst113AdminQuestion />}
+          />
+          {/*  */}
+          <Route path="gst121-admin-post" element={<Gst121AdminPost />} />
+          <Route
+            path="gst121-admin-question"
+            element={<Gst121AdminQuestion />}
           />
         </Route>
         <Route path="/admin-post" element={<AdminPost />} />

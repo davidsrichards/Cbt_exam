@@ -43,7 +43,7 @@ function NavigationBar({ username }) {
     }
   }, [timer]);
 
-  const minutes = Math.floor((timer % 1800) / 60);
+  const minutes = Math.floor((timer % 2700) / 60);
   const seconds = timer % 60;
 
   // opened

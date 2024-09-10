@@ -32,6 +32,26 @@ function AdminNavItmes() {
         <NavLink to={"gst222-admin-question"}>GST222</NavLink>
       </li>
       {/*  */}
+      <li className="p-4 w-full  flex items-center justify-between  hover:bg-gray-700 transition duration-300 ease-in-out">
+        <NavLink to={"esp221-admin-question"}>ESP221</NavLink>
+      </li>
+      {/*  */}
+      <li className="p-4 w-full  flex items-center justify-between  hover:bg-gray-700 transition duration-300 ease-in-out">
+        <NavLink to={"gst111-admin-question"}>GST111</NavLink>
+      </li>
+      {/*  */}
+      <li className="p-4 w-full  flex items-center justify-between  hover:bg-gray-700 transition duration-300 ease-in-out">
+        <NavLink to={"gst112-admin-question"}>GST112</NavLink>
+      </li>
+      {/*  */}
+      <li className="p-4 w-full  flex items-center justify-between  hover:bg-gray-700 transition duration-300 ease-in-out">
+        <NavLink to={"gst113-admin-question"}>GST113</NavLink>
+      </li>
+      {/*  */}
+      <li className="p-4 w-full  flex items-center justify-between  hover:bg-gray-700 transition duration-300 ease-in-out">
+        <NavLink to={"gst121-admin-question"}>GST121</NavLink>
+      </li>
+      {/*  */}
       <li
         className={`p-4 w-full hover:bg-gray-700 transition duration-300 ease-in-out`}
       >

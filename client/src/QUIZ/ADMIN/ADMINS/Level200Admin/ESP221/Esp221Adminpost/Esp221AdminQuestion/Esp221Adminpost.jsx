@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import { AdminPost } from "../../GLOBALADMIN/GlobalAdminHelperFunction/GlobalAdminHelperFunction";
-import GlobalAdminPost from "../../GLOBALADMIN/GlobalAdminPost/GlobalAdminPost";
-import { resetAdminQuestions } from "../../../../../REDOX/Features/AdminQuestionSlice/AdminQuestionSlice";
+import GlobalAdminPost from "../../../../GLOBALADMIN/GlobalAdminPost/GlobalAdminPost";
+import { resetAdminQuestions } from "../../../../../../../REDOX/Features/AdminQuestionSlice/AdminQuestionSlice";
+import { AdminPost } from "../../../../GLOBALADMIN/GlobalAdminHelperFunction/GlobalAdminHelperFunction";
 
-function Gst222AdminPost() {
+function Esp221AdminPost() {
   const dispatch = useDispatch();
   const { questions, answers } = useSelector((state) => state.adminQuestions);
-  const BASE_URL = "/api/user/gst222";
+  const BASE_URL = "/api/user/esp221";
   const handlePost = async (e) => {
     e.preventDefault();
     await AdminPost(BASE_URL, { data: questions, answers });
@@ -23,4 +23,4 @@ function Gst222AdminPost() {
   );
 }
 
-export default Gst222AdminPost;
+export default Esp221AdminPost;

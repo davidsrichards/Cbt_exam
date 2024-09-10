@@ -69,31 +69,35 @@ function GlobalInitial({ length, setter, to, url, reviews }) {
 
   return (
     <div className="container p-2 mx-auto">
-      <div className="text-white flex items-center justify-center flex-col gap-12 p-12 rounded-lg  bg-gray-400 bg-opacity-80 select-ct">
+      <div className="text-white flex items-center justify-center flex-col gap-12 p-12 rounded-lg select-ct">
         <ul
           role="list"
           className="text-[1.1rem] items-center space-y-4 text-center text-[#fff] rounded-md"
         >
           <li className="leading-4">
-            you will be given {length?.length} questions.
+            you will be given
+            <span className="font-bold font-mono">
+              &nbsp; {length?.length}{" "}
+            </span>
+            &nbsp; questions.
           </li>
           <li className="leading-4">each question contains 4 options.</li>
           <li className="leading-4">
-            you are to click on Submit if you done with the quiz.
+            you are to click on Submit After you're done with the quiz.
           </li>
         </ul>
 
         <div className="flex items-center justify-around  w-full">
           <NavLink to={to} className="font-bold">
             <button
-              className="bg-blue-400 w-[7rem] h-[3rem] rounded-lg transition delay-75 duration-150 hover:bg-blue-500"
+              className="bg-primary w-[7rem] h-[2.5rem] rounded-lg transition delay-75 duration-150 hover:bg-opacity-85"
               onClick={() => dispatch(startTimerAction(true))}
             >
               Start Quiz
             </button>
           </NavLink>
           <NavLink to={reviews} className="font-bold">
-            <button className="bg-blue-400 w-[7rem] h-[3rem] rounded-lg transition delay-75 duration-150 hover:bg-blue-500">
+            <button className="bg-primary w-[7rem] h-[2.5rem] rounded-lg transition delay-75 duration-150 hover:bg-opacity-85">
               Review
             </button>
           </NavLink>

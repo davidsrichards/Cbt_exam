@@ -43,7 +43,7 @@ function GlobalQuizzes({
             )}
             {trace === question.length - 1 && (
               <button
-                className="bg-gray-500 ring-1 ring-gray-500 hover:bg-transparent w-[8rem] h-10 rounded-lg text-white transition-all duration-500 ease-in-out"
+                className="bg-primary ring-1 ring-gray-500 hover:bg-transparent w-[8rem] h-10 rounded-lg text-white transition-all duration-500 ease-in-out"
                 onClick={() => handleFinishedButton()}
               >
                 Submit

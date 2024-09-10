@@ -18,7 +18,7 @@ export async function getQuestions(req, res) {
 // post request
 
 export async function postquestions(req, res) {
-  /*  const { data, answers } = req.body; */
+  const { data, answers } = req.body;
   try {
     const newQuestion = new ESP221({
       questions: data,

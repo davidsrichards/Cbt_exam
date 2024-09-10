@@ -40,10 +40,28 @@ function AdminSidebar({ username }) {
               <SidebarItems to={"cmp223-admin-question"} value={"CMP 223"} />
             </li>
             <li>
+              <SidebarItems to={"cmp224-admin-question"} value={"CMP 224"} />
+            </li>
+            <li>
               <SidebarItems to={"cmp225-admin-question"} value={"CMP 225"} />
             </li>
             <li>
               <SidebarItems to={"gst222-admin-question"} value={"GST 222"} />
+            </li>
+            <li>
+              <SidebarItems to={"esp221-admin-question"} value={"ESP 221"} />
+            </li>
+            <li>
+              <SidebarItems to={"gst111-admin-question"} value={"GST 111"} />
+            </li>
+            <li>
+              <SidebarItems to={"gst112-admin-question"} value={"GST 112"} />
+            </li>
+            <li>
+              <SidebarItems to={"gst113-admin-question"} value={"GST 113"} />
+            </li>
+            <li>
+              <SidebarItems to={"gst121-admin-question"} value={"GST 121"} />
             </li>
           </div>
           {/*  */}

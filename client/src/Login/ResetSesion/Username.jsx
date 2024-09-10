@@ -30,25 +30,25 @@ function Username() {
   });
   return (
     <>
-      <div className="shade w-full sm:p-0 p-2 overflow-hidden">
+      <div className="shade w-full sm:p-0 p-2">
         <Toaster position="center-top" reverseOrder={false}></Toaster>
-        <div className="flex justify-center items-center h-screen p-2 overflow-hidden">
+        <div className="flex justify-center items-center h-screen p-4">
           <div
-            className={`${style.textbox} shade mx-auto bg-[#fff] p-2 border-2`}
+            className={`${style.textbox} shade mx-auto bg-[#fff]  border-2 p-2 flex items-center justify-center`}
           >
-            <div className="title flex flex-col items-center">
+            <div className="title flex flex-col items-center  w-full">
               <h4 className="text-3xl font-bold">Hello Again</h4>
-              <span className="py-4 text-xl w-2/3 text-center text-gray-500">
+              <span className="py-4 text-xl w-2/3 text-center text-gray-500 text-nowrap ">
                 Specify User name
               </span>
             </div>
             <form action="" onSubmit={formik.handleSubmit}>
-              <div className={`${style.glass} flex flex-col w-full gap-4 p-4`}>
+              <div className={`${style.glass} flex flex-col w-full gap-4 p-12`}>
                 <input
                   {...formik.getFieldProps("username")}
                   type="text"
                   placeholder="username"
-                  className="box p-2"
+                  className="box p-2 w-full"
                 />
                 <button
                   type="submit"
