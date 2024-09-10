@@ -32,7 +32,7 @@ function Cmp211Results() {
             point: totalPoints,
             achieved: totalPoints <= 40 ? "Failed" : "Passed",
           },
-          "/cmp211/result"
+          "/cmp221/result"
         );
       } catch (error) {
         console.log(error);
@@ -54,11 +54,11 @@ function Cmp211Results() {
         onpoint={totalPoints}
         totalAttempt={totalAttempts}
         resetAll={resetAllActions}
-        to={"/google/login/success/cmp211"}
+        to={"/google/login/success/cmp221"}
         /*  apidata={apidata.apidata}
         index={1} */
-        oldPath={"cmp211-result"}
-        newAPath={"cmp211-review"}
+        oldPath={"cmp221-result"}
+        newAPath={"cmp221-review"}
       />
     </div>
   );

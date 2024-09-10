@@ -101,10 +101,10 @@ function MainComponenet() {
           <Route path="quiz" element={<Quiz />} />
           <Route path="result" element={<Result />} />
           <Route path="profile" element={<UserProfile />} />
-          <Route path="cmp211" element={<Cmp211 />} />
-          <Route path="cmp211-init" element={<Cmp211Initial />} />
-          <Route path="cmp211-result" element={<Cmp211Results />} />
-          <Route path="cmp211-review" element={<Cmp211Reviews />} />
+          <Route path="cmp221" element={<Cmp211 />} />
+          <Route path="cmp221-init" element={<Cmp211Initial />} />
+          <Route path="cmp221-result" element={<Cmp211Results />} />
+          <Route path="cmp221-review" element={<Cmp211Reviews />} />
           <Route path="cmp222" element={<Cmp222 />} />
           <Route path="cmp222-init" element={<Cmp222Initial />} />
           <Route path="cmp222-result" element={<Cmp222Results />} />
@@ -158,11 +158,11 @@ function MainComponenet() {
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-dashboard" element={<AdminDashBoard />}>
           <Route
-            path="cmp211-admin-question"
+            path="cmp221-admin-question"
             element={<Cmp211AdminQuestion />}
           />
 
-          <Route path="cmp211-admin-post" element={<Cmp211AdminPost />} />
+          <Route path="cmp221-admin-post" element={<Cmp211AdminPost />} />
           <Route
             path="cmp222-admin-question"
             element={<Cmp222AdminQuestion />}

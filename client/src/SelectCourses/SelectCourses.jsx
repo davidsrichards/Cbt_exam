@@ -7,25 +7,25 @@ function SelectCourses() {
   const navigate = useNavigate();
   const location = useLocation();
   const [course, setCourse] = useState([
-    "CMP211",
+    "CMP221",
     "CMP222",
     "CMP223",
     "CMP224",
     "CMP225",
     "GST222",
     "ESP221",
-    "GST111",
-    "GST112",
-    "GST113",
     "GST121",
   ]);
-  const [level, setLevel] = useState(["100", " 200", "300", "400"]);
+  const [level, setLevel] = useState(["100", " 200"]);
   const [department, setDepartment] = useState(["Computer Science"]);
   const [selectCourse, setSelectedCourse] = useState("");
   const [selectDep, setSelectedDep] = useState("");
   const [selectLevel, setSelectedLevel] = useState("");
 
   // navigate user
+  /*  "GST111",
+  "GST112",
+  "GST113", */
 
   useEffect(() => {
     if (selectLevel && selectCourse && selectDep) {

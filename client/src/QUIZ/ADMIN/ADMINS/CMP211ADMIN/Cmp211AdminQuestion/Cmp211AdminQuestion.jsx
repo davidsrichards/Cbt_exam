@@ -4,8 +4,8 @@ function Cmp211AdminQuestion() {
   return (
     <>
       <GlobalAdminQuestion
-        oldPath={"cmp211-admin-question"}
-        newPath={"cmp211-admin-post"}
+        oldPath={"cmp221-admin-question"}
+        newPath={"cmp221-admin-post"}
       />
     </>
   );

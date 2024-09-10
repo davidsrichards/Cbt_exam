@@ -56,7 +56,7 @@ function Cmp211Quiz() {
   // navigate to result
   const navigateToResult = () => {
     const current = location.pathname;
-    const newPath = current.replace("cmp211", "cmp211-result");
+    const newPath = current.replace("cmp221", "cmp221-result");
     return navigate(newPath, { replace: true, relative: true });
   };
   // finish

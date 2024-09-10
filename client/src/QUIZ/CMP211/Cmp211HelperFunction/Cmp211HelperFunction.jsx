@@ -17,7 +17,7 @@ export function cmp211helperfunction(option) {
     if (option) {
       const fetQuestions = async () => {
         try {
-          const { data } = await axios.get(`${BASE_URL}/cmp211`);
+          const { data } = await axios.get(`${BASE_URL}/cmp221`);
           setexamdata((prev) => ({ ...prev, isloading: false }));
           const response = [data[0].questions, data[0].answers];
           const questions = data[0].questions,

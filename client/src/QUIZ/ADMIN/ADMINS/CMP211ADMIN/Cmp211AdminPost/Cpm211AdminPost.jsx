@@ -6,7 +6,7 @@ import { resetAdminQuestions } from "../../../../../REDOX/Features/AdminQuestion
 function Cmp211AdminPost() {
   const dispatch = useDispatch();
   const { questions, answers } = useSelector((state) => state.adminQuestions);
-  const BASE_URL = "/api/user/cmp211";
+  const BASE_URL = "/api/user/cmp221";
   const handlePost = async (e) => {
     e.preventDefault();
     await AdminPost(BASE_URL, { data: questions, answers });
